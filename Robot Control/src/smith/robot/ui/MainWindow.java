@@ -1,7 +1,8 @@
 package smith.robot.ui;
 
 import java.awt.Container;
-import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -58,17 +59,18 @@ public class MainWindow extends WindowAdapter implements KeyListener,
 
 	private JPanel videoPane() {
 		JPanel pane = new JPanel();
+		pane.setLayout(new GridBagLayout());
+		GridBagConstraints c = new GridBagConstraints();
 		player = new VideoPlayer();
 
 		JButton start = new JButton("Start");
 		start.addActionListener(this);
 		JButton stop = new JButton("Stop");
 		stop.addActionListener(this);
-		pane.add(start);
-		pane.add(stop);
+		pane.add(start,c);
+		pane.add(stop,c);
 		Container con = player.getComponent();
-		con.setPreferredSize(new Dimension(200, 200));
-		pane.add(con);
+		pane.add(con,c);
 		return pane;
 	}
 
@@ -106,7 +108,7 @@ public class MainWindow extends WindowAdapter implements KeyListener,
 	public void actionPerformed(ActionEvent e) {
 		String lab = e.getActionCommand();
 		if (lab.equals("Start")) {
-			player.startPlaying("http://192.168.1.15:8080/video");
+			player.startPlaying("http://192.168.1.57:8080/video");
 		} else {
 			player.stopPlaying();
 		}
