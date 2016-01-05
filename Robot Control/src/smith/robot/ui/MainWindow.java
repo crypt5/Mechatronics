@@ -1,38 +1,30 @@
 package smith.robot.ui;
 
-import java.awt.Container;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class MainWindow extends WindowAdapter implements KeyListener,
-		ActionListener {
+public class MainWindow extends WindowAdapter {
 
 	private JFrame frame;
 	private VideoPlayer player;
 
 	public MainWindow() {
+		player = new VideoPlayer();
+
 		frame = new JFrame("Robot Control");
 		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frame.addWindowListener(this);
-		frame.addKeyListener(this);
 
 		JPanel disp = new JPanel();
 		disp.setLayout(new GridLayout(2, 2));
 
 		disp.add(dirPane());
-		disp.add(videoPane());
+		disp.add(player.getComponent());
 		disp.add(new JPanel());
 		disp.add(sensorPane());
 
@@ -57,23 +49,6 @@ public class MainWindow extends WindowAdapter implements KeyListener,
 		return pane;
 	}
 
-	private JPanel videoPane() {
-		JPanel pane = new JPanel();
-		pane.setLayout(new GridBagLayout());
-		GridBagConstraints c = new GridBagConstraints();
-		player = new VideoPlayer();
-
-		JButton start = new JButton("Start");
-		start.addActionListener(this);
-		JButton stop = new JButton("Stop");
-		stop.addActionListener(this);
-		pane.add(start,c);
-		pane.add(stop,c);
-		Container con = player.getComponent();
-		pane.add(con,c);
-		return pane;
-	}
-
 	private JPanel sensorPane() {
 		JPanel pane = new JPanel();
 		pane.add(new JLabel("Sensors"));
@@ -85,32 +60,5 @@ public class MainWindow extends WindowAdapter implements KeyListener,
 	public void windowClosing(WindowEvent e) {
 		player.close();
 		System.exit(0);
-	}
-
-	@Override
-	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		String lab = e.getActionCommand();
-		if (lab.equals("Start")) {
-			player.startPlaying("http://192.168.1.57:8080/video");
-		} else {
-			player.stopPlaying();
-		}
 	}
 }
