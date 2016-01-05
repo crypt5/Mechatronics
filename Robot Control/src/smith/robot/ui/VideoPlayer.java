@@ -1,8 +1,9 @@
 package smith.robot.ui;
 
-import java.awt.Container;
 import java.awt.Dimension;
 import java.io.Closeable;
+
+import javax.swing.JPanel;
 
 import uk.co.caprica.vlcj.component.EmbeddedMediaPlayerComponent;
 
@@ -19,11 +20,13 @@ public class VideoPlayer implements Closeable {
 
 	public VideoPlayer() {
 		mediaPlayerComponent = new EmbeddedMediaPlayerComponent();
-		mediaPlayerComponent.setPreferredSize(new Dimension(320,240));
+		mediaPlayerComponent.setPreferredSize(new Dimension(320, 240));
 	}
 
-	public Container getComponent() {
-		return mediaPlayerComponent;
+	public JPanel getComponent() {
+		JPanel pane = new JPanel();
+		pane.add(mediaPlayerComponent);
+		return pane;
 	}
 
 	public void startPlaying(String address) {
