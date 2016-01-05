@@ -24,7 +24,7 @@ public class MainWindow extends WindowAdapter {
 		disp.setLayout(new GridLayout(2, 2));
 
 		disp.add(dirPane());
-		disp.add(player.getComponent());
+		disp.add(player.getComponent()); // Add Video Player
 		disp.add(new JPanel());
 		disp.add(sensorPane());
 
