@@ -1,0 +1,52 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Kenneth/Desktop/Mechatronics/Serial To SPI/simulation/qsim
+vSerialtoSpi
+Z1 !s110 1456379758
+!i10b 1
+!s100 =WJ8d<JagI=DbZUBFX_n82
+I=5O>kijdfJXAjYcj_?f2U2
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1456379757
+8SerialtoSpi.vo
+FSerialtoSpi.vo
+L0 32
+Z3 OV;L;10.4b;61
+r1
+!s85 0
+31
+Z4 !s108 1456379758.000000
+!s107 SerialtoSpi.vo|
+!s90 -work|work|SerialtoSpi.vo|
+!i113 1
+Z5 o-work work
+n@serialto@spi
+vSerialtoSpi_vlg_vec_tst
+R1
+!i10b 1
+!s100 S0BbUW^M6=`bRLiFdkf[h1
+IM::3U_GA5IGk<44PP2BkC0
+R2
+R0
+w1456379754
+8Waveform.vwf.vt
+FWaveform.vwf.vt
+L0 30
+R3
+r1
+!s85 0
+31
+R4
+!s107 Waveform.vwf.vt|
+!s90 -work|work|Waveform.vwf.vt|
+!i113 1
+R5
+n@serialto@spi_vlg_vec_tst
