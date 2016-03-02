@@ -15,28 +15,30 @@ public class SerialTest implements SerialPortEventListener {
 		} catch (SerialPortException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 
-	public void run() throws SerialPortException {
+	public void run() throws SerialPortException, InterruptedException {
 		port = new SerialPort("COM1");
-		try {
-			port.openPort();
-			port.setParams(SerialPort.BAUDRATE_110, SerialPort.DATABITS_8, SerialPort.STOPBITS_1,
-					SerialPort.PARITY_NONE);
-			port.setFlowControlMode(SerialPort.FLOWCONTROL_RTSCTS_OUT);
-			// port.addEventListener(this);
+		port.openPort();
+		port.setParams(SerialPort.BAUDRATE_110, SerialPort.DATABITS_8, SerialPort.STOPBITS_1, SerialPort.PARITY_NONE);
+		port.setFlowControlMode(SerialPort.FLOWCONTROL_RTSCTS_OUT);
+		// port.addEventListener(this);
 
-			port.writeByte((byte) 0b10111100);
+		port.writeByte((byte) 0b10011001);
+		Thread.sleep(500);
+		String read = port.readHexString();
+		if (read != null)
+			System.out.println("Received: " + read);
 
-			// port.writeString("ljkasflkhasdklfjhasdjkfhaklsdhfklajsdhfjklashdfklahsdjklfhasdjklfhajksdhfaklsdhf");
-			/*
-			 * while (true) Thread.sleep(1000000);
-			 */
-		} catch (Exception e) {
-			e.printStackTrace();
-			port.closePort();
-		}
+		// port.writeString("ljkasflkhasdklfjhasdjkfhaklsdhfklajsdhfjklashdfklahsdjklfhasdjklfhajksdhfaklsdhf");
+		/*
+		 * while (true) Thread.sleep(1000000);
+		 */
+		port.closePort();
 
 	}
 
