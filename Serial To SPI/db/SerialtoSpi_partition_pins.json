@@ -4,11 +4,51 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "OUT",
+					"name" : "CTS",
+					"strict" : false
+				},
+				{
+					"name" : "BYTEOUT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "BYTEOUT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "BYTEOUT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "BYTEOUT[3]",
+					"strict" : false
+				},
+				{
+					"name" : "BYTEOUT[4]",
+					"strict" : false
+				},
+				{
+					"name" : "BYTEOUT[5]",
+					"strict" : false
+				},
+				{
+					"name" : "BYTEOUT[6]",
+					"strict" : false
+				},
+				{
+					"name" : "BYTEOUT[7]",
+					"strict" : false
+				},
+				{
+					"name" : "RTS",
 					"strict" : false
 				},
 				{
 					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "TX_D",
 					"strict" : false
 				}
 			]

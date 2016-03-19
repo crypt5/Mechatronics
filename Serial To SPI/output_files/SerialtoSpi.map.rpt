@@ -1,5 +1,5 @@
 Analysis & Synthesis report for SerialtoSpi
-Wed Feb 24 23:02:28 2016
+Fri Mar 18 20:10:56 2016
 Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
 
 
@@ -43,16 +43,16 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Feb 24 23:02:28 2016       ;
+; Analysis & Synthesis Status        ; Successful - Fri Mar 18 20:10:56 2016       ;
 ; Quartus Prime Version              ; 15.1.0 Build 185 10/21/2015 SJ Lite Edition ;
 ; Revision Name                      ; SerialtoSpi                                 ;
-; Top-level Entity Name              ; SerialtoSpi                                 ;
+; Top-level Entity Name              ; UART_IN                                     ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 57                                          ;
-;     Total combinational functions  ; 57                                          ;
-;     Dedicated logic registers      ; 33                                          ;
-; Total registers                    ; 33                                          ;
-; Total pins                         ; 2                                           ;
+; Total logic elements               ; 100                                         ;
+;     Total combinational functions  ; 86                                          ;
+;     Dedicated logic registers      ; 57                                          ;
+; Total registers                    ; 57                                          ;
+; Total pins                         ; 13                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -66,7 +66,7 @@ agreement for further details.
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                     ; EP4CE22F17C6       ;                    ;
-; Top-level entity name                                                      ; SerialtoSpi        ; SerialtoSpi        ;
+; Top-level entity name                                                      ; UART_IN            ; SerialtoSpi        ;
 ; Family name                                                                ; Cyclone IV E       ; Cyclone V          ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
@@ -158,13 +158,13 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                    ;
-+----------------------------------+-----------------+------------------------+-------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                      ; Library ;
-+----------------------------------+-----------------+------------------------+-------------------------------------------------------------------+---------+
-; SerialtoSpi.v                    ; yes             ; User Verilog HDL File  ; C:/Users/Kenneth/Desktop/Mechatronics/Serial To SPI/SerialtoSpi.v ;         ;
-+----------------------------------+-----------------+------------------------+-------------------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                  ; Library ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------------------+---------+
+; UART_IN.v                        ; yes             ; User Verilog HDL File  ; C:/Users/Kenneth/Desktop/Mechatronics/Serial To SPI/UART_IN.v ;         ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------------------+---------+
 
 
 +---------------------------------------------------------+
@@ -172,40 +172,41 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 57        ;
+; Estimated Total logic elements              ; 100       ;
 ;                                             ;           ;
-; Total combinational functions               ; 57        ;
+; Total combinational functions               ; 86        ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 10        ;
-;     -- 3 input functions                    ; 0         ;
-;     -- <=2 input functions                  ; 47        ;
+;     -- 4 input functions                    ; 43        ;
+;     -- 3 input functions                    ; 5         ;
+;     -- <=2 input functions                  ; 38        ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 26        ;
+;     -- normal mode                          ; 55        ;
 ;     -- arithmetic mode                      ; 31        ;
 ;                                             ;           ;
-; Total registers                             ; 33        ;
-;     -- Dedicated logic registers            ; 33        ;
+; Total registers                             ; 57        ;
+;     -- Dedicated logic registers            ; 57        ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
-; I/O pins                                    ; 2         ;
+; I/O pins                                    ; 13        ;
 ;                                             ;           ;
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
 ; Maximum fan-out                             ; 33        ;
-; Total fan-out                               ; 202       ;
-; Average fan-out                             ; 2.15      ;
+; Total fan-out                               ; 412       ;
+; Average fan-out                             ; 2.44      ;
 +---------------------------------------------+-----------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; |SerialtoSpi               ; 57 (57)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 2    ; 0            ; |SerialtoSpi        ; work         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name        ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------+--------------+
+; |UART_IN                   ; 86 (11)           ; 57 (24)      ; 0           ; 0            ; 0       ; 0         ; 13   ; 0            ; |UART_IN                   ; work         ;
+;    |newClk:change_clk|     ; 75 (75)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART_IN|newClk:change_clk ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -214,12 +215,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 33    ;
+; Total registers                              ; 57    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 18    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -229,19 +230,22 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 2                           ;
-; cycloneiii_ff         ; 33                          ;
-;     plain             ; 33                          ;
-; cycloneiii_lcell_comb ; 57                          ;
+; boundary_port         ; 13                          ;
+; cycloneiii_ff         ; 57                          ;
+;     ENA               ; 18                          ;
+;     plain             ; 39                          ;
+; cycloneiii_lcell_comb ; 87                          ;
 ;     arith             ; 31                          ;
 ;         2 data inputs ; 31                          ;
-;     normal            ; 26                          ;
-;         1 data inputs ; 1                           ;
-;         2 data inputs ; 15                          ;
-;         4 data inputs ; 10                          ;
+;     normal            ; 56                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 5                           ;
+;         2 data inputs ; 2                           ;
+;         3 data inputs ; 5                           ;
+;         4 data inputs ; 43                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 4.40                        ;
-; Average LUT depth     ; 3.67                        ;
+; Max LUT depth         ; 5.10                        ;
+; Average LUT depth     ; 3.25                        ;
 +-----------------------+-----------------------------+
 
 
@@ -260,22 +264,29 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
-    Info: Processing started: Wed Feb 24 23:02:17 2016
+    Info: Processing started: Fri Mar 18 20:10:45 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SerialtoSpi -c SerialtoSpi
 Warning (20028): Parallel compilation is not licensed and has been disabled
-Info (12021): Found 1 design units, including 1 entities, in source file serialtospi.v
-    Info (12023): Found entity 1: SerialtoSpi File: C:/Users/Kenneth/Desktop/Mechatronics/Serial To SPI/SerialtoSpi.v Line: 1
-Info (12127): Elaborating entity "SerialtoSpi" for the top level hierarchy
+Info (12021): Found 2 design units, including 2 entities, in source file uart_in.v
+    Info (12023): Found entity 1: newClk File: C:/Users/Kenneth/Desktop/Mechatronics/Serial To SPI/UART_IN.v Line: 1
+    Info (12023): Found entity 2: UART_IN File: C:/Users/Kenneth/Desktop/Mechatronics/Serial To SPI/UART_IN.v Line: 41
+Warning (10236): Verilog HDL Implicit Net warning at UART_IN.v(50): created implicit net for "newclk" File: C:/Users/Kenneth/Desktop/Mechatronics/Serial To SPI/UART_IN.v Line: 50
+Info (12127): Elaborating entity "UART_IN" for the top level hierarchy
+Warning (10230): Verilog HDL assignment warning at UART_IN.v(58): truncated value with size 32 to match size of target (4) File: C:/Users/Kenneth/Desktop/Mechatronics/Serial To SPI/UART_IN.v Line: 58
+Warning (10034): Output port "load" at UART_IN.v(43) has no driver File: C:/Users/Kenneth/Desktop/Mechatronics/Serial To SPI/UART_IN.v Line: 43
+Info (12128): Elaborating entity "newClk" for hierarchy "newClk:change_clk" File: C:/Users/Kenneth/Desktop/Mechatronics/Serial To SPI/UART_IN.v Line: 50
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "load" is stuck at GND File: C:/Users/Kenneth/Desktop/Mechatronics/Serial To SPI/UART_IN.v Line: 43
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 59 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 1 input pins
-    Info (21059): Implemented 1 output pins
-    Info (21061): Implemented 57 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 764 megabytes
-    Info: Processing ended: Wed Feb 24 23:02:28 2016
+Info (21057): Implemented 115 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 10 output pins
+    Info (21061): Implemented 102 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
+    Info: Peak virtual memory: 762 megabytes
+    Info: Processing ended: Fri Mar 18 20:10:56 2016
     Info: Elapsed time: 00:00:11
     Info: Total CPU time (on all processors): 00:00:24
 

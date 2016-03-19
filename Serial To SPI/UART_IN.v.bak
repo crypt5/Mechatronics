@@ -1,0 +1,94 @@
+module newClk(clk, newclk, change);
+input clk,change;
+output reg newclk;
+
+reg [31:0]count;
+
+always@(posedge clk)
+begin
+
+	if(change==1)
+		begin
+		if(count==5200) //104 Micro Seconds (9600) Hz
+			begin
+			count=0;
+			newclk=1;
+			end
+		else
+			begin
+			count=count+1;
+			newclk=0;
+			end
+		end
+	else
+		begin
+		if(count==1300) //26 Micro Senonds (9600/4) Hz
+			begin
+			count=0;
+			newclk=1;
+			end
+		else
+			begin
+			count=count+1;
+			newclk=0;
+			end
+		end
+end
+
+endmodule
+
+
+module UART_IN (clk, TX_D, RTS, CTS, BYTEOUT, load);
+input clk,TX_D,RTS;
+output reg CTS,load;
+output reg [7:0]BYTEOUT;
+
+reg change=0;
+reg [3:0]count=0;
+
+newClk change_clk(clk, newclk, change);
+
+always@(posedge newclk, posedge RTS)
+begin
+	if(RTS==1&&count<=10)
+		begin
+		change=1;
+		CTS=1;
+		load=0;
+		if(count>=1&&count<=9)
+			begin
+			BYTEOUT=BYTEOUT>>1;
+			BYTEOUT[0]=TX_D;
+			end
+		count=count+1;
+		end
+	else
+		begin
+		change=0;
+		CTS=0;
+		count=0;
+		load=1;
+		end
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+endmodule

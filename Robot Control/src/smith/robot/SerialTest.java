@@ -24,7 +24,7 @@ public class SerialTest implements SerialPortEventListener {
 	public void run() throws SerialPortException, InterruptedException {
 		port = new SerialPort("COM1");
 		port.openPort();
-		port.setParams(SerialPort.BAUDRATE_110, SerialPort.DATABITS_8, SerialPort.STOPBITS_1, SerialPort.PARITY_NONE);
+		port.setParams(SerialPort.BAUDRATE_9600, SerialPort.DATABITS_8, SerialPort.STOPBITS_1, SerialPort.PARITY_NONE);
 		port.setFlowControlMode(SerialPort.FLOWCONTROL_RTSCTS_OUT);
 		// port.addEventListener(this);
 

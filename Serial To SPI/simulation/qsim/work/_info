@@ -16,18 +16,18 @@ I=5O>kijdfJXAjYcj_?f2U2
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 R0
 w1456379757
-8SerialtoSpi.vo
-FSerialtoSpi.vo
-L0 32
-Z3 OV;L;10.4b;61
+Z3 8SerialtoSpi.vo
+Z4 FSerialtoSpi.vo
+Z5 L0 32
+Z6 OV;L;10.4b;61
 r1
 !s85 0
 31
-Z4 !s108 1456379758.000000
-!s107 SerialtoSpi.vo|
-!s90 -work|work|SerialtoSpi.vo|
+Z7 !s108 1456379758.000000
+Z8 !s107 SerialtoSpi.vo|
+Z9 !s90 -work|work|SerialtoSpi.vo|
 !i113 1
-Z5 o-work work
+Z10 o-work work
 n@serialto@spi
 vSerialtoSpi_vlg_vec_tst
 R1
@@ -37,16 +37,58 @@ IM::3U_GA5IGk<44PP2BkC0
 R2
 R0
 w1456379754
-8Waveform.vwf.vt
-FWaveform.vwf.vt
-L0 30
-R3
+Z11 8Waveform.vwf.vt
+Z12 FWaveform.vwf.vt
+Z13 L0 30
+R6
 r1
 !s85 0
 31
-R4
+R7
 !s107 Waveform.vwf.vt|
-!s90 -work|work|Waveform.vwf.vt|
+Z14 !s90 -work|work|Waveform.vwf.vt|
 !i113 1
-R5
+R10
 n@serialto@spi_vlg_vec_tst
+vUART_IN
+Z15 !s110 1458353843
+!i10b 1
+!s100 l@PV:7O9RnDSN>Je;N0^l1
+IHcbOKfBFHZAmGTT7A>WO;0
+R2
+R0
+w1458353842
+R3
+R4
+R5
+R6
+r1
+!s85 0
+31
+Z16 !s108 1458353843.000000
+R8
+R9
+!i113 1
+R10
+n@u@a@r@t_@i@n
+vUART_IN_vlg_vec_tst
+R15
+!i10b 1
+!s100 jJ]kBEj^oQD1cYnlzkE203
+I[=hLV_d5cP[O58iLPV?eJ1
+R2
+R0
+w1458353839
+R11
+R12
+R13
+R6
+r1
+!s85 0
+31
+R16
+!s107 Waveform.vwf.vt|
+R14
+!i113 1
+R10
+n@u@a@r@t_@i@n_vlg_vec_tst

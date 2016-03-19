@@ -1,15 +1,15 @@
-Fitter Status : Successful - Wed Feb 24 23:02:36 2016
+Fitter Status : Successful - Fri Mar 18 20:11:05 2016
 Quartus Prime Version : 15.1.0 Build 185 10/21/2015 SJ Lite Edition
 Revision Name : SerialtoSpi
-Top-level Entity Name : SerialtoSpi
+Top-level Entity Name : UART_IN
 Family : Cyclone IV E
 Device : EP4CE22F17C6
 Timing Models : Final
-Total logic elements : 57 / 22,320 ( < 1 % )
-    Total combinational functions : 57 / 22,320 ( < 1 % )
-    Dedicated logic registers : 33 / 22,320 ( < 1 % )
-Total registers : 33
-Total pins : 2 / 154 ( 1 % )
+Total logic elements : 97 / 22,320 ( < 1 % )
+    Total combinational functions : 86 / 22,320 ( < 1 % )
+    Dedicated logic registers : 57 / 22,320 ( < 1 % )
+Total registers : 57
+Total pins : 13 / 154 ( 8 % )
 Total virtual pins : 0
 Total memory bits : 0 / 608,256 ( 0 % )
 Embedded Multiplier 9-bit elements : 0 / 132 ( 0 % )

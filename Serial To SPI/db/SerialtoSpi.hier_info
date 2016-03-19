@@ -1,6 +1,21 @@
-|SerialtoSpi
-OUT << OUT~reg0.DB_MAX_OUTPUT_PORT_TYPE
-clk => OUT~reg0.CLK
+|UART_IN
+clk => newClk:change_clk.clk
+TX_D => data_in[0].DATAIN
+RTS => always0.IN1
+CTS <= CTS~reg0.DB_MAX_OUTPUT_PORT_TYPE
+BYTEOUT[0] <= BYTEOUT[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+BYTEOUT[1] <= BYTEOUT[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+BYTEOUT[2] <= BYTEOUT[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+BYTEOUT[3] <= BYTEOUT[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+BYTEOUT[4] <= BYTEOUT[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+BYTEOUT[5] <= BYTEOUT[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+BYTEOUT[6] <= BYTEOUT[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+BYTEOUT[7] <= BYTEOUT[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+load <= <GND>
+
+
+|UART_IN|newClk:change_clk
+clk => newclk~reg0.CLK
 clk => count[0].CLK
 clk => count[1].CLK
 clk => count[2].CLK
@@ -33,5 +48,39 @@ clk => count[28].CLK
 clk => count[29].CLK
 clk => count[30].CLK
 clk => count[31].CLK
+newclk <= newclk~reg0.DB_MAX_OUTPUT_PORT_TYPE
+change => count.OUTPUTSELECT
+change => count.OUTPUTSELECT
+change => count.OUTPUTSELECT
+change => count.OUTPUTSELECT
+change => count.OUTPUTSELECT
+change => count.OUTPUTSELECT
+change => count.OUTPUTSELECT
+change => count.OUTPUTSELECT
+change => count.OUTPUTSELECT
+change => count.OUTPUTSELECT
+change => count.OUTPUTSELECT
+change => count.OUTPUTSELECT
+change => count.OUTPUTSELECT
+change => count.OUTPUTSELECT
+change => count.OUTPUTSELECT
+change => count.OUTPUTSELECT
+change => count.OUTPUTSELECT
+change => count.OUTPUTSELECT
+change => count.OUTPUTSELECT
+change => count.OUTPUTSELECT
+change => count.OUTPUTSELECT
+change => count.OUTPUTSELECT
+change => count.OUTPUTSELECT
+change => count.OUTPUTSELECT
+change => count.OUTPUTSELECT
+change => count.OUTPUTSELECT
+change => count.OUTPUTSELECT
+change => count.OUTPUTSELECT
+change => count.OUTPUTSELECT
+change => count.OUTPUTSELECT
+change => count.OUTPUTSELECT
+change => count.OUTPUTSELECT
+change => newclk.OUTPUTSELECT
 
 
