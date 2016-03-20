@@ -28,7 +28,7 @@ public class SerialTest implements SerialPortEventListener {
 		port.setFlowControlMode(SerialPort.FLOWCONTROL_RTSCTS_OUT);
 		// port.addEventListener(this);
 
-		port.writeByte((byte) 0b10011001);
+		port.writeByte((byte) 0b10000001);
 		Thread.sleep(500);
 		String read = port.readHexString();
 		if (read != null)

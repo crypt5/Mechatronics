@@ -1,7 +1,8 @@
 |UART_IN
-clk => newClk:change_clk.clk
-TX_D => data_in[0].DATAIN
-RTS => always0.IN1
+clk => newClk:change_CLK.clk
+newclk <= newClk:change_CLK.newclk
+TX_D => always0.IN1
+RTS => ~NO_FANOUT~
 CTS <= CTS~reg0.DB_MAX_OUTPUT_PORT_TYPE
 BYTEOUT[0] <= BYTEOUT[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 BYTEOUT[1] <= BYTEOUT[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
@@ -14,7 +15,7 @@ BYTEOUT[7] <= BYTEOUT[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 load <= <GND>
 
 
-|UART_IN|newClk:change_clk
+|UART_IN|newClk:change_CLK
 clk => newclk~reg0.CLK
 clk => count[0].CLK
 clk => count[1].CLK
@@ -32,39 +33,7 @@ clk => count[12].CLK
 clk => count[13].CLK
 clk => count[14].CLK
 clk => count[15].CLK
-clk => count[16].CLK
-clk => count[17].CLK
-clk => count[18].CLK
-clk => count[19].CLK
-clk => count[20].CLK
-clk => count[21].CLK
-clk => count[22].CLK
-clk => count[23].CLK
-clk => count[24].CLK
-clk => count[25].CLK
-clk => count[26].CLK
-clk => count[27].CLK
-clk => count[28].CLK
-clk => count[29].CLK
-clk => count[30].CLK
-clk => count[31].CLK
 newclk <= newclk~reg0.DB_MAX_OUTPUT_PORT_TYPE
-change => count.OUTPUTSELECT
-change => count.OUTPUTSELECT
-change => count.OUTPUTSELECT
-change => count.OUTPUTSELECT
-change => count.OUTPUTSELECT
-change => count.OUTPUTSELECT
-change => count.OUTPUTSELECT
-change => count.OUTPUTSELECT
-change => count.OUTPUTSELECT
-change => count.OUTPUTSELECT
-change => count.OUTPUTSELECT
-change => count.OUTPUTSELECT
-change => count.OUTPUTSELECT
-change => count.OUTPUTSELECT
-change => count.OUTPUTSELECT
-change => count.OUTPUTSELECT
 change => count.OUTPUTSELECT
 change => count.OUTPUTSELECT
 change => count.OUTPUTSELECT

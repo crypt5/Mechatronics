@@ -2,25 +2,25 @@
 # ** Warning: (vlib-34) Library already exists at "work".
 # 
 # Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
-# Start time: 20:17:23 on Mar 18,2016
+# Start time: 22:55:32 on Mar 19,2016
 # vlog -work work SerialtoSpi.vo 
 # -- Compiling module UART_IN
 # 
 # Top level modules:
 # 	UART_IN
-# End time: 20:17:23 on Mar 18,2016, Elapsed time: 0:00:00
+# End time: 22:55:32 on Mar 19,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
-# Start time: 20:17:23 on Mar 18,2016
+# Start time: 22:55:32 on Mar 19,2016
 # vlog -work work Waveform.vwf.vt 
 # -- Compiling module UART_IN_vlg_vec_tst
 # 
 # Top level modules:
 # 	UART_IN_vlg_vec_tst
-# End time: 20:17:23 on Mar 18,2016, Elapsed time: 0:00:00
+# End time: 22:55:32 on Mar 19,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vsim -novopt -c -t 1ps -L cycloneive_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.UART_IN_vlg_vec_tst -voptargs=""+acc"" 
-# Start time: 20:17:23 on Mar 18,2016
+# Start time: 22:55:32 on Mar 19,2016
 # Loading work.UART_IN_vlg_vec_tst
 # Loading work.UART_IN
 # Loading cycloneive_ver.cycloneive_io_obuf
@@ -30,8 +30,14 @@
 # Loading cycloneive_ver.cycloneive_ena_reg
 # Loading cycloneive_ver.cycloneive_lcell_comb
 # Loading altera_ver.dffeas
+# SDF 10.4b Compiler 2015.05 May 27 2015
+# 
+# Loading instances from SerialtoSpi_v.sdo
 # Loading altera_ver.PRIM_GDFF_LOW
-# ** Note: $finish    : Waveform.vwf.vt(53)
+# Loading timing data from SerialtoSpi_v.sdo
+# ** Note: (vsim-3587) SDF Backannotation Successfully Completed.
+#    Time: 0 ps  Iteration: 0  Instance: /UART_IN_vlg_vec_tst File: Waveform.vwf.vt
+# ** Note: $finish    : Waveform.vwf.vt(55)
 #    Time: 100 us  Iteration: 0  Instance: /UART_IN_vlg_vec_tst
-# End time: 20:17:23 on Mar 18,2016, Elapsed time: 0:00:00
+# End time: 22:55:33 on Mar 19,2016, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
