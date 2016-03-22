@@ -1,6 +1,0 @@
-module UART (clk, TX_D, RX_D, RTS, CTS, BYTEOUT)
-
-
-
-
-endmodule

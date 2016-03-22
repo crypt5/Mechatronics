@@ -1,6 +1,0 @@
-module test(OUT,clk);
-input clk;
-output wire OUT;
-
-
-endmodule
