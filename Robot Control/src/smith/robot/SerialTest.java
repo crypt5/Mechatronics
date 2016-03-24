@@ -33,6 +33,8 @@ public class SerialTest implements SerialPortEventListener {
 		String read = port.readHexString();
 		if (read != null)
 			System.out.println("Received: " + read);
+		else
+			System.out.println("NULL");
 
 		// port.writeString("ljkasflkhasdklfjhasdjkfhaklsdhfklajsdhfjklashdfklahsdjklfhasdjklfhajksdhfaklsdhf");
 		/*

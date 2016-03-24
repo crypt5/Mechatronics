@@ -1,5 +1,5 @@
 Analysis & Synthesis report for SerialtoSPI
-Wed Mar 23 20:25:30 2016
+Thu Mar 24 17:26:53 2016
 Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
 
 
@@ -43,13 +43,13 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Mar 23 20:25:30 2016       ;
+; Analysis & Synthesis Status        ; Successful - Thu Mar 24 17:26:53 2016       ;
 ; Quartus Prime Version              ; 15.1.0 Build 185 10/21/2015 SJ Lite Edition ;
 ; Revision Name                      ; SerialtoSPI                                 ;
 ; Top-level Entity Name              ; SerialtoSPI                                 ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 64                                          ;
-;     Total combinational functions  ; 55                                          ;
+; Total logic elements               ; 67                                          ;
+;     Total combinational functions  ; 58                                          ;
 ;     Dedicated logic registers      ; 42                                          ;
 ; Total registers                    ; 42                                          ;
 ; Total pins                         ; 12                                          ;
@@ -169,36 +169,36 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                       ;
-+---------------------------------------------+-------------------------------------+
-; Resource                                    ; Usage                               ;
-+---------------------------------------------+-------------------------------------+
-; Estimated Total logic elements              ; 64                                  ;
-;                                             ;                                     ;
-; Total combinational functions               ; 55                                  ;
-; Logic element usage by number of LUT inputs ;                                     ;
-;     -- 4 input functions                    ; 33                                  ;
-;     -- 3 input functions                    ; 4                                   ;
-;     -- <=2 input functions                  ; 18                                  ;
-;                                             ;                                     ;
-; Logic elements by mode                      ;                                     ;
-;     -- normal mode                          ; 40                                  ;
-;     -- arithmetic mode                      ; 15                                  ;
-;                                             ;                                     ;
-; Total registers                             ; 42                                  ;
-;     -- Dedicated logic registers            ; 42                                  ;
-;     -- I/O registers                        ; 0                                   ;
-;                                             ;                                     ;
-; I/O pins                                    ; 12                                  ;
-;                                             ;                                     ;
-; Embedded Multiplier 9-bit elements          ; 0                                   ;
-;                                             ;                                     ;
-; Maximum fan-out node                        ; SERIAL_IN:inst|CLK_RESET:newClk|CLK ;
-; Maximum fan-out                             ; 17                                  ;
-; Total fan-out                               ; 300                                 ;
-; Average fan-out                             ; 2.48                                ;
-+---------------------------------------------+-------------------------------------+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                         ;
++---------------------------------------------+---------------------------------------+
+; Resource                                    ; Usage                                 ;
++---------------------------------------------+---------------------------------------+
+; Estimated Total logic elements              ; 67                                    ;
+;                                             ;                                       ;
+; Total combinational functions               ; 58                                    ;
+; Logic element usage by number of LUT inputs ;                                       ;
+;     -- 4 input functions                    ; 35                                    ;
+;     -- 3 input functions                    ; 3                                     ;
+;     -- <=2 input functions                  ; 20                                    ;
+;                                             ;                                       ;
+; Logic elements by mode                      ;                                       ;
+;     -- normal mode                          ; 43                                    ;
+;     -- arithmetic mode                      ; 15                                    ;
+;                                             ;                                       ;
+; Total registers                             ; 42                                    ;
+;     -- Dedicated logic registers            ; 42                                    ;
+;     -- I/O registers                        ; 0                                     ;
+;                                             ;                                       ;
+; I/O pins                                    ; 12                                    ;
+;                                             ;                                       ;
+; Embedded Multiplier 9-bit elements          ; 0                                     ;
+;                                             ;                                       ;
+; Maximum fan-out node                        ; SERIAL_IN:inst|CLK_RESET:newClk|CLK~9 ;
+; Maximum fan-out                             ; 17                                    ;
+; Total fan-out                               ; 308                                   ;
+; Average fan-out                             ; 2.48                                  ;
++---------------------------------------------+---------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -206,10 +206,10 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                          ; Library Name ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------+--------------+
-; |SerialtoSPI               ; 55 (0)            ; 42 (0)       ; 0           ; 0            ; 0       ; 0         ; 12   ; 0            ; |SerialtoSPI                                 ; work         ;
-;    |REGISTER:inst1|        ; 0 (0)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SerialtoSPI|REGISTER:inst1                  ; work         ;
-;    |SERIAL_IN:inst|        ; 55 (30)           ; 34 (17)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SerialtoSPI|SERIAL_IN:inst                  ; work         ;
-;       |CLK_RESET:newClk|   ; 25 (25)           ; 17 (17)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SerialtoSPI|SERIAL_IN:inst|CLK_RESET:newClk ; work         ;
+; |SerialtoSPI               ; 58 (0)            ; 42 (0)       ; 0           ; 0            ; 0       ; 0         ; 12   ; 0            ; |SerialtoSPI                                 ; work         ;
+;    |REGISTER:inst1|        ; 1 (1)             ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SerialtoSPI|REGISTER:inst1                  ; work         ;
+;    |SERIAL_IN:inst|        ; 57 (31)           ; 33 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SerialtoSPI|SERIAL_IN:inst                  ; work         ;
+;       |CLK_RESET:newClk|   ; 26 (26)           ; 17 (17)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SerialtoSPI|SERIAL_IN:inst|CLK_RESET:newClk ; work         ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -238,17 +238,17 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; cycloneiii_ff         ; 42                          ;
 ;     SCLR              ; 16                          ;
 ;     plain             ; 26                          ;
-; cycloneiii_lcell_comb ; 55                          ;
+; cycloneiii_lcell_comb ; 58                          ;
 ;     arith             ; 15                          ;
 ;         2 data inputs ; 15                          ;
-;     normal            ; 40                          ;
+;     normal            ; 43                          ;
 ;         1 data inputs ; 1                           ;
-;         2 data inputs ; 2                           ;
-;         3 data inputs ; 4                           ;
-;         4 data inputs ; 33                          ;
+;         2 data inputs ; 4                           ;
+;         3 data inputs ; 3                           ;
+;         4 data inputs ; 35                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 4.00                        ;
-; Average LUT depth     ; 2.19                        ;
+; Average LUT depth     ; 2.29                        ;
 +-----------------------+-----------------------------+
 
 
@@ -267,36 +267,36 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
-    Info: Processing started: Wed Mar 23 20:25:19 2016
+    Info: Processing started: Thu Mar 24 17:26:42 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SerialtoSPI -c SerialtoSPI
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file serialtospi.bdf
     Info (12023): Found entity 1: SerialtoSPI
 Info (12021): Found 2 design units, including 2 entities, in source file serial_in.v
     Info (12023): Found entity 1: SERIAL_IN File: C:/Users/Kenneth/Desktop/Mechatronics/Serial to SPI/SERIAL_IN.v Line: 1
-    Info (12023): Found entity 2: CLK_RESET File: C:/Users/Kenneth/Desktop/Mechatronics/Serial to SPI/SERIAL_IN.v Line: 54
+    Info (12023): Found entity 2: CLK_RESET File: C:/Users/Kenneth/Desktop/Mechatronics/Serial to SPI/SERIAL_IN.v Line: 53
 Info (12021): Found 1 design units, including 1 entities, in source file register.v
     Info (12023): Found entity 1: REGISTER File: C:/Users/Kenneth/Desktop/Mechatronics/Serial to SPI/REGISTER.v Line: 1
 Warning (10236): Verilog HDL Implicit Net warning at SERIAL_IN.v(19): created implicit net for "CLK" File: C:/Users/Kenneth/Desktop/Mechatronics/Serial to SPI/SERIAL_IN.v Line: 19
 Info (12127): Elaborating entity "SerialtoSPI" for the top level hierarchy
-Info (12128): Elaborating entity "SERIAL_IN" for hierarchy "SERIAL_IN:inst"
-Warning (10230): Verilog HDL assignment warning at SERIAL_IN.v(28): truncated value with size 32 to match size of target (4) File: C:/Users/Kenneth/Desktop/Mechatronics/Serial to SPI/SERIAL_IN.v Line: 28
-Warning (10230): Verilog HDL assignment warning at SERIAL_IN.v(44): truncated value with size 32 to match size of target (4) File: C:/Users/Kenneth/Desktop/Mechatronics/Serial to SPI/SERIAL_IN.v Line: 44
-Info (12128): Elaborating entity "CLK_RESET" for hierarchy "SERIAL_IN:inst|CLK_RESET:newClk" File: C:/Users/Kenneth/Desktop/Mechatronics/Serial to SPI/SERIAL_IN.v Line: 19
-Warning (10230): Verilog HDL assignment warning at SERIAL_IN.v(67): truncated value with size 32 to match size of target (16) File: C:/Users/Kenneth/Desktop/Mechatronics/Serial to SPI/SERIAL_IN.v Line: 67
-Warning (10230): Verilog HDL assignment warning at SERIAL_IN.v(80): truncated value with size 32 to match size of target (16) File: C:/Users/Kenneth/Desktop/Mechatronics/Serial to SPI/SERIAL_IN.v Line: 80
 Info (12128): Elaborating entity "REGISTER" for hierarchy "REGISTER:inst1"
+Info (12128): Elaborating entity "SERIAL_IN" for hierarchy "SERIAL_IN:inst"
+Warning (10230): Verilog HDL assignment warning at SERIAL_IN.v(27): truncated value with size 32 to match size of target (4) File: C:/Users/Kenneth/Desktop/Mechatronics/Serial to SPI/SERIAL_IN.v Line: 27
+Warning (10230): Verilog HDL assignment warning at SERIAL_IN.v(43): truncated value with size 32 to match size of target (4) File: C:/Users/Kenneth/Desktop/Mechatronics/Serial to SPI/SERIAL_IN.v Line: 43
+Info (12128): Elaborating entity "CLK_RESET" for hierarchy "SERIAL_IN:inst|CLK_RESET:newClk" File: C:/Users/Kenneth/Desktop/Mechatronics/Serial to SPI/SERIAL_IN.v Line: 19
+Warning (10230): Verilog HDL assignment warning at SERIAL_IN.v(66): truncated value with size 32 to match size of target (16) File: C:/Users/Kenneth/Desktop/Mechatronics/Serial to SPI/SERIAL_IN.v Line: 66
+Warning (10230): Verilog HDL assignment warning at SERIAL_IN.v(79): truncated value with size 32 to match size of target (16) File: C:/Users/Kenneth/Desktop/Mechatronics/Serial to SPI/SERIAL_IN.v Line: 79
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 77 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 80 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 9 output pins
-    Info (21061): Implemented 65 logic cells
+    Info (21061): Implemented 68 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 765 megabytes
-    Info: Processing ended: Wed Mar 23 20:25:30 2016
+    Info: Peak virtual memory: 762 megabytes
+    Info: Processing ended: Thu Mar 24 17:26:53 2016
     Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:24
+    Info: Total CPU time (on all processors): 00:00:26
 
 

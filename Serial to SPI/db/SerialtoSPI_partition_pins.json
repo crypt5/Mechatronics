@@ -44,11 +44,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "CLK",
+					"name" : "TX_D",
 					"strict" : false
 				},
 				{
-					"name" : "TX_D",
+					"name" : "CLK",
 					"strict" : false
 				}
 			]

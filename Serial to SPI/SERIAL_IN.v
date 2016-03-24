@@ -1,6 +1,6 @@
-module SERIAL_IN(clk_50,TX_D,RTS,CTS,LOAD,BYTEOUT);
-input clk_50,TX_D,RTS;
-output reg CTS,LOAD;
+module SERIAL_IN(clk_50,TX_D,LOAD,BYTEOUT);
+input clk_50,TX_D;
+output reg LOAD;
 output wire [7:0]BYTEOUT;
 
 reg change=0;
@@ -20,7 +20,6 @@ CLK_RESET newClk(clk_50,change,CLK);
 
 always@(posedge CLK)
 begin
-CTS=RTS;
 	if(TX_D==0&&change==0)
 		begin
 		LOAD=0;
@@ -62,7 +61,7 @@ always@(posedge clk_50)
 begin
 	if(SLOW)
 		begin
-		if(count<5200)
+		if(count<45200)
 			begin
 			count=count+1;
 			CLK=0;
