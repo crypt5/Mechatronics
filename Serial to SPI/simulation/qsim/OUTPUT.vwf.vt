@@ -1,0 +1,110 @@
+// Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, the Altera Quartus Prime License Agreement,
+// the Altera MegaCore Function License Agreement, or other 
+// applicable license agreement, including, without limitation, 
+// that your use is for the sole purpose of programming logic 
+// devices manufactured by Altera and sold by Altera or its 
+// authorized distributors.  Please refer to the applicable 
+// agreement for further details.
+
+// *****************************************************************************
+// This file contains a Verilog test bench with test vectors .The test vectors  
+// are exported from a vector file in the Quartus Waveform Editor and apply to  
+// the top level entity of the current Quartus project .The user can use this   
+// testbench to simulate his design using a third-party simulation tool .       
+// *****************************************************************************
+// Generated on "03/24/2016 21:48:23"
+                                                                                
+// Verilog Test Bench (with test vectors) for design :                          SerialtoSPI
+// 
+// Simulation tool : 3rd Party
+// 
+
+`timescale 1 ps/ 1 ps
+module SerialtoSPI_vlg_vec_tst();
+// constants                                           
+// general purpose registers
+reg [7:0] BYTEIN;
+reg CLK;
+reg LOAD;
+// wires                                               
+wire NEW_DATA;
+wire RX_D;
+
+// assign statements (if any)                          
+SerialtoSPI i1 (
+// port map - connection between master ports and signals/registers   
+	.BYTEIN(BYTEIN),
+	.CLK(CLK),
+	.LOAD(LOAD),
+	.NEW_DATA(NEW_DATA),
+	.RX_D(RX_D)
+);
+initial 
+begin 
+#1000000 $finish;
+end 
+// BYTEIN[ 7 ]
+initial
+begin
+	BYTEIN[7] = 1'b0;
+end 
+// BYTEIN[ 6 ]
+initial
+begin
+	BYTEIN[6] = 1'b0;
+end 
+// BYTEIN[ 5 ]
+initial
+begin
+	BYTEIN[5] = 1'b0;
+end 
+// BYTEIN[ 4 ]
+initial
+begin
+	BYTEIN[4] = 1'b0;
+end 
+// BYTEIN[ 3 ]
+initial
+begin
+	BYTEIN[3] = 1'b0;
+end 
+// BYTEIN[ 2 ]
+initial
+begin
+	BYTEIN[2] = 1'b0;
+end 
+// BYTEIN[ 1 ]
+initial
+begin
+	BYTEIN[1] = 1'b0;
+end 
+// BYTEIN[ 0 ]
+initial
+begin
+	BYTEIN[0] = 1'b1;
+end 
+
+// CLK
+always
+begin
+	CLK = 1'b0;
+	CLK = #5000 1'b1;
+	#5000;
+end 
+
+// LOAD
+initial
+begin
+	LOAD = 1'b0;
+	LOAD = #10000 1'b1;
+	LOAD = #10000 1'b0;
+end 
+endmodule
+

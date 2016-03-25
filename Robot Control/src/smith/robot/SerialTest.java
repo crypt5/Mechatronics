@@ -22,14 +22,14 @@ public class SerialTest implements SerialPortEventListener {
 	}
 
 	public void run() throws SerialPortException, InterruptedException {
-		port = new SerialPort("COM1");
+		port = new SerialPort("COM2");
 		port.openPort();
 		port.setParams(SerialPort.BAUDRATE_9600, SerialPort.DATABITS_8, SerialPort.STOPBITS_1, SerialPort.PARITY_NONE);
 		port.setFlowControlMode(SerialPort.FLOWCONTROL_RTSCTS_OUT);
 		// port.addEventListener(this);
 
-		port.writeByte((byte) 0b10000001);
-		Thread.sleep(500);
+		port.writeByte((byte) 0b10011001);
+		Thread.sleep(2000);
 		String read = port.readHexString();
 		if (read != null)
 			System.out.println("Received: " + read);

@@ -2,25 +2,25 @@
 # ** Warning: (vlib-34) Library already exists at "work".
 # 
 # Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
-# Start time: 17:21:34 on Mar 24,2016
+# Start time: 21:48:27 on Mar 24,2016
 # vlog -work work SerialtoSPI.vo 
 # -- Compiling module SerialtoSPI
 # 
 # Top level modules:
 # 	SerialtoSPI
-# End time: 17:21:35 on Mar 24,2016, Elapsed time: 0:00:01
+# End time: 21:48:27 on Mar 24,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
-# Start time: 17:21:35 on Mar 24,2016
-# vlog -work work INPUT_AND_REGISTER.vwf.vt 
+# Start time: 21:48:27 on Mar 24,2016
+# vlog -work work OUTPUT.vwf.vt 
 # -- Compiling module SerialtoSPI_vlg_vec_tst
 # 
 # Top level modules:
 # 	SerialtoSPI_vlg_vec_tst
-# End time: 17:21:35 on Mar 24,2016, Elapsed time: 0:00:00
+# End time: 21:48:27 on Mar 24,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vsim -novopt -c -t 1ps -L cycloneive_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.SerialtoSPI_vlg_vec_tst -voptargs=""+acc"" 
-# Start time: 17:21:36 on Mar 24,2016
+# Start time: 21:48:28 on Mar 24,2016
 # Loading work.SerialtoSPI_vlg_vec_tst
 # Loading work.SerialtoSPI
 # Loading cycloneive_ver.cycloneive_io_obuf
@@ -31,7 +31,7 @@
 # Loading cycloneive_ver.cycloneive_lcell_comb
 # Loading altera_ver.dffeas
 # Loading altera_ver.PRIM_GDFF_LOW
-# ** Note: $finish    : INPUT_AND_REGISTER.vwf.vt(51)
+# ** Note: $finish    : OUTPUT.vwf.vt(51)
 #    Time: 1 us  Iteration: 0  Instance: /SerialtoSPI_vlg_vec_tst
-# End time: 17:21:38 on Mar 24,2016, Elapsed time: 0:00:02
+# End time: 21:48:28 on Mar 24,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0

@@ -1,9 +1,9 @@
-module SERIAL_IN(clk_50,TX_D,LOAD,BYTEOUT);
-input clk_50,TX_D;
+module SERIAL_IN(CLK,TX_D,LOAD,BYTEOUT,SLOW_CLK);
+input CLK,TX_D;
 output reg LOAD;
 output wire [7:0]BYTEOUT;
+output reg SLOW_CLK=0;
 
-reg change=0;
 reg [3:0]count;
 reg [9:0]data;
 
@@ -16,22 +16,21 @@ assign BYTEOUT[5]=data[6];
 assign BYTEOUT[6]=data[7];
 assign BYTEOUT[7]=data[8];
 
-CLK_RESET newClk(clk_50,change,CLK);
 
 always@(posedge CLK)
 begin
-	if(TX_D==0&&change==0)
+	if(TX_D==0&&SLOW_CLK==0)
 		begin
 		LOAD=0;
-		change=1;
+		SLOW_CLK=1;
 		count=count+1;
 		data[0]=0;
 		end
-	else if(change==1)
+	else if(SLOW_CLK==1)
 		begin
 		if(count==10)
 			begin
-			change=0;
+			SLOW_CLK=0;
 			if(data[0]==0&&data[9]==1)
 				LOAD=1;
 			else
@@ -44,47 +43,6 @@ begin
 			end
 		end
 	
-end
-
-endmodule
-
-
-
-module CLK_RESET(clk_50,SLOW,CLK);
-input clk_50,SLOW;
-output reg CLK;
-
-reg [15:0]count;
-
-
-always@(posedge clk_50)
-begin
-	if(SLOW)
-		begin
-		if(count<45200)
-			begin
-			count=count+1;
-			CLK=0;
-			end
-		else
-			begin
-			count=0;
-			CLK=1;
-			end
-		end
-	else
-		begin
-		if(count<1300)
-			begin
-			count=count+1;
-			CLK=0;
-			end
-		else
-			begin
-			count=0;
-			CLK=1;
-			end
-		end
 end
 
 endmodule

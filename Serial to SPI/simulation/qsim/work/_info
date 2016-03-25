@@ -9,13 +9,13 @@ z2
 cModel Technology
 Z0 dC:/Users/Kenneth/Desktop/Mechatronics/Serial to SPI/simulation/qsim
 vSerialtoSPI
-Z1 !s110 1458861695
+Z1 !s110 1458877707
 !i10b 1
-!s100 hYbiU7=mjMkf?;Q_YY1ON1
-IISYPlGiAEQ7MMI5:Ik3>_3
+!s100 1hUlkQNc]bCQ2k=XFdlWH3
+IE4D[?LFiEf4d`l:CI4]<f3
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 R0
-w1458861691
+w1458877707
 8SerialtoSPI.vo
 FSerialtoSPI.vo
 L0 32
@@ -23,30 +23,30 @@ Z3 OV;L;10.4b;61
 r1
 !s85 0
 31
-!s108 1458861694.000000
+Z4 !s108 1458877707.000000
 !s107 SerialtoSPI.vo|
 !s90 -work|work|SerialtoSPI.vo|
 !i113 1
-Z4 o-work work
+Z5 o-work work
 n@serialto@s@p@i
 vSerialtoSPI_vlg_vec_tst
 R1
 !i10b 1
-!s100 QRIYCY2C`@M>KKZXPBA[n1
-II2I;^:_B5TlK9TB=bJQoQ2
+!s100 J_E0:R6J4D07>a<A^h_G_3
+IzkT>>:3>Q8f>fc9l9W?ck1
 R2
 R0
-w1458861688
-8INPUT_AND_REGISTER.vwf.vt
-FINPUT_AND_REGISTER.vwf.vt
+w1458877703
+8OUTPUT.vwf.vt
+FOUTPUT.vwf.vt
 L0 30
 R3
 r1
 !s85 0
 31
-!s108 1458861695.000000
-!s107 INPUT_AND_REGISTER.vwf.vt|
-!s90 -work|work|INPUT_AND_REGISTER.vwf.vt|
-!i113 1
 R4
+!s107 OUTPUT.vwf.vt|
+!s90 -work|work|OUTPUT.vwf.vt|
+!i113 1
+R5
 n@serialto@s@p@i_vlg_vec_tst

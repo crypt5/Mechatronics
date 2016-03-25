@@ -3,95 +3,127 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'CLK'
-Slack : -2.173
-TNS   : -35.698
+Slack : -2.524
+TNS   : -67.873
 
-Type  : Slow 1200mV 85C Model Setup 'SERIAL_IN:inst|CLK_RESET:newClk|CLK'
-Slack : -2.089
-TNS   : -18.606
+Type  : Slow 1200mV 85C Model Setup 'CLOCK:inst|SAMPLE'
+Slack : -2.138
+TNS   : -22.729
 
-Type  : Slow 1200mV 85C Model Setup 'SERIAL_IN:inst|LOAD'
-Slack : 0.007
+Type  : Slow 1200mV 85C Model Setup 'CLOCK:inst|CONST_9600'
+Slack : -1.412
+TNS   : -11.264
+
+Type  : Slow 1200mV 85C Model Setup 'SERIAL_IN:inst4|LOAD'
+Slack : -0.011
+TNS   : -0.028
+
+Type  : Slow 1200mV 85C Model Hold 'SERIAL_IN:inst4|LOAD'
+Slack : 0.324
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Hold 'SERIAL_IN:inst|LOAD'
-Slack : 0.278
+Type  : Slow 1200mV 85C Model Hold 'CLOCK:inst|CONST_9600'
+Slack : 0.343
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Hold 'SERIAL_IN:inst|CLK_RESET:newClk|CLK'
+Type  : Slow 1200mV 85C Model Hold 'CLOCK:inst|SAMPLE'
 Slack : 0.357
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'CLK'
-Slack : 0.477
+Slack : 0.479
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLK'
 Slack : -3.000
-TNS   : -20.000
+TNS   : -37.000
 
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SERIAL_IN:inst|CLK_RESET:newClk|CLK'
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK:inst|SAMPLE'
 Slack : -1.000
 TNS   : -16.000
 
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SERIAL_IN:inst|LOAD'
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK:inst|CONST_9600'
+Slack : -1.000
+TNS   : -14.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SERIAL_IN:inst4|LOAD'
 Slack : -1.000
 TNS   : -9.000
 
 Type  : Slow 1200mV 0C Model Setup 'CLK'
-Slack : -1.847
-TNS   : -30.268
+Slack : -2.149
+TNS   : -57.626
 
-Type  : Slow 1200mV 0C Model Setup 'SERIAL_IN:inst|CLK_RESET:newClk|CLK'
-Slack : -1.758
-TNS   : -15.101
+Type  : Slow 1200mV 0C Model Setup 'CLOCK:inst|SAMPLE'
+Slack : -1.826
+TNS   : -18.650
 
-Type  : Slow 1200mV 0C Model Setup 'SERIAL_IN:inst|LOAD'
-Slack : 0.130
+Type  : Slow 1200mV 0C Model Setup 'CLOCK:inst|CONST_9600'
+Slack : -1.146
+TNS   : -8.783
+
+Type  : Slow 1200mV 0C Model Setup 'SERIAL_IN:inst4|LOAD'
+Slack : 0.095
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Hold 'SERIAL_IN:inst|LOAD'
-Slack : 0.227
+Type  : Slow 1200mV 0C Model Hold 'SERIAL_IN:inst4|LOAD'
+Slack : 0.291
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Hold 'SERIAL_IN:inst|CLK_RESET:newClk|CLK'
+Type  : Slow 1200mV 0C Model Hold 'CLOCK:inst|CONST_9600'
+Slack : 0.299
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'CLOCK:inst|SAMPLE'
 Slack : 0.312
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'CLK'
-Slack : 0.426
+Slack : 0.428
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLK'
 Slack : -3.000
-TNS   : -20.000
+TNS   : -37.000
 
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SERIAL_IN:inst|CLK_RESET:newClk|CLK'
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK:inst|SAMPLE'
 Slack : -1.000
 TNS   : -16.000
 
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SERIAL_IN:inst|LOAD'
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK:inst|CONST_9600'
+Slack : -1.000
+TNS   : -14.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SERIAL_IN:inst4|LOAD'
 Slack : -1.000
 TNS   : -9.000
 
-Type  : Fast 1200mV 0C Model Setup 'SERIAL_IN:inst|CLK_RESET:newClk|CLK'
-Slack : -0.785
-TNS   : -3.709
-
 Type  : Fast 1200mV 0C Model Setup 'CLK'
-Slack : -0.751
-TNS   : -12.076
+Slack : -0.944
+TNS   : -22.095
 
-Type  : Fast 1200mV 0C Model Setup 'SERIAL_IN:inst|LOAD'
-Slack : 0.453
+Type  : Fast 1200mV 0C Model Setup 'CLOCK:inst|SAMPLE'
+Slack : -0.800
+TNS   : -5.792
+
+Type  : Fast 1200mV 0C Model Setup 'CLOCK:inst|CONST_9600'
+Slack : -0.346
+TNS   : -1.100
+
+Type  : Fast 1200mV 0C Model Setup 'SERIAL_IN:inst4|LOAD'
+Slack : 0.433
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Hold 'SERIAL_IN:inst|LOAD'
-Slack : 0.135
+Type  : Fast 1200mV 0C Model Hold 'SERIAL_IN:inst4|LOAD'
+Slack : 0.158
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Hold 'SERIAL_IN:inst|CLK_RESET:newClk|CLK'
-Slack : 0.186
+Type  : Fast 1200mV 0C Model Hold 'CLOCK:inst|CONST_9600'
+Slack : 0.178
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'CLOCK:inst|SAMPLE'
+Slack : 0.187
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'CLK'
@@ -100,13 +132,17 @@ TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLK'
 Slack : -3.000
-TNS   : -20.960
+TNS   : -39.351
 
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SERIAL_IN:inst|CLK_RESET:newClk|CLK'
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK:inst|SAMPLE'
 Slack : -1.000
 TNS   : -16.000
 
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SERIAL_IN:inst|LOAD'
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK:inst|CONST_9600'
+Slack : -1.000
+TNS   : -14.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SERIAL_IN:inst4|LOAD'
 Slack : -1.000
 TNS   : -9.000
 
