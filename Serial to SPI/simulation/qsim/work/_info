@@ -9,13 +9,13 @@ z2
 cModel Technology
 Z0 dC:/Users/Kenneth/Desktop/Mechatronics/Serial to SPI/simulation/qsim
 vSerialtoSPI
-Z1 !s110 1458877707
+Z1 !s110 1458969191
 !i10b 1
-!s100 1hUlkQNc]bCQ2k=XFdlWH3
-IE4D[?LFiEf4d`l:CI4]<f3
+!s100 <?fN``CUKY@jZQhNJA:kD2
+IS4AdFX5R8e<:1FMPMT5d00
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 R0
-w1458877707
+w1458969190
 8SerialtoSPI.vo
 FSerialtoSPI.vo
 L0 32
@@ -23,7 +23,7 @@ Z3 OV;L;10.4b;61
 r1
 !s85 0
 31
-Z4 !s108 1458877707.000000
+Z4 !s108 1458969191.000000
 !s107 SerialtoSPI.vo|
 !s90 -work|work|SerialtoSPI.vo|
 !i113 1
@@ -32,21 +32,21 @@ n@serialto@s@p@i
 vSerialtoSPI_vlg_vec_tst
 R1
 !i10b 1
-!s100 J_E0:R6J4D07>a<A^h_G_3
-IzkT>>:3>Q8f>fc9l9W?ck1
+!s100 9@DIok_QnKF<kVSZUBYh91
+ILWlUUT9Ak`fND1z<1jRKT2
 R2
 R0
-w1458877703
-8OUTPUT.vwf.vt
-FOUTPUT.vwf.vt
+w1458969187
+8MEM_TEST.vwf.vt
+FMEM_TEST.vwf.vt
 L0 30
 R3
 r1
 !s85 0
 31
 R4
-!s107 OUTPUT.vwf.vt|
-!s90 -work|work|OUTPUT.vwf.vt|
+!s107 MEM_TEST.vwf.vt|
+!s90 -work|work|MEM_TEST.vwf.vt|
 !i113 1
 R5
 n@serialto@s@p@i_vlg_vec_tst

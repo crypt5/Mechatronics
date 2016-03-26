@@ -4,43 +4,43 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "RX_D",
-					"strict" : false
-				},
-				{
 					"name" : "CTS",
 					"strict" : false
 				},
 				{
-					"name" : "LEDS[7]",
+					"name" : "FULL",
 					"strict" : false
 				},
 				{
-					"name" : "LEDS[6]",
+					"name" : "OUTPUT[7]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDS[5]",
+					"name" : "OUTPUT[6]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDS[4]",
+					"name" : "OUTPUT[5]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDS[3]",
+					"name" : "OUTPUT[4]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDS[2]",
+					"name" : "OUTPUT[3]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDS[1]",
+					"name" : "OUTPUT[2]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDS[0]",
+					"name" : "OUTPUT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "OUTPUT[0]",
 					"strict" : false
 				},
 				{
@@ -48,11 +48,67 @@
 					"strict" : false
 				},
 				{
-					"name" : "CLK",
+					"name" : "LOAD",
 					"strict" : false
 				},
 				{
-					"name" : "TX_D",
+					"name" : "RESET",
+					"strict" : false
+				},
+				{
+					"name" : "READ",
+					"strict" : false
+				},
+				{
+					"name" : "BYTEIN[7]",
+					"strict" : false
+				},
+				{
+					"name" : "ADDR[0]",
+					"strict" : false
+				},
+				{
+					"name" : "ADDR[1]",
+					"strict" : false
+				},
+				{
+					"name" : "ADDR[2]",
+					"strict" : false
+				},
+				{
+					"name" : "ADDR[3]",
+					"strict" : false
+				},
+				{
+					"name" : "ADDR[4]",
+					"strict" : false
+				},
+				{
+					"name" : "BYTEIN[6]",
+					"strict" : false
+				},
+				{
+					"name" : "BYTEIN[5]",
+					"strict" : false
+				},
+				{
+					"name" : "BYTEIN[4]",
+					"strict" : false
+				},
+				{
+					"name" : "BYTEIN[3]",
+					"strict" : false
+				},
+				{
+					"name" : "BYTEIN[2]",
+					"strict" : false
+				},
+				{
+					"name" : "BYTEIN[1]",
+					"strict" : false
+				},
+				{
+					"name" : "BYTEIN[0]",
 					"strict" : false
 				}
 			]

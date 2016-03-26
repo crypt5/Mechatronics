@@ -1,0 +1,9 @@
+module MEM_32_BYTE(LOAD,BYTEIN,ADDR,BYTEOUT,RTS,CTS,FULL);
+input LOAD,RTS;
+output wire CTS;
+output reg FULL;
+input [7:0]BYTEIN;
+input [4:0]ADDR;
+output reg [7:0]BYTEOUT;
+
+endmodule
