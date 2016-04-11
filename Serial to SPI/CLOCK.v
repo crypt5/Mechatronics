@@ -1,46 +1,18 @@
-module CLOCK(clk_50,CONST_9600,SAMPLE,CHANGE,RESET);
-input clk_50,CHANGE,RESET;
-output reg CONST_9600,SAMPLE;
+module CLOCK(clk_50,CONST_9600,RESET);
+input clk_50,RESET;
+output reg CONST_9600;
 
-reg [15:0]count;
 reg [15:0]const_count;
 
 always@(posedge clk_50 or negedge RESET)
 begin
 	if(RESET==0)
 		begin
-		count=0;
 		const_count=0;
 		CONST_9600=0;
-		SAMPLE=0;
-		end
-
-	if(CHANGE)
-		begin
-		if(count<5200)
-			begin
-			count=count+1;
-			SAMPLE=0;
-			end
-		else
-			begin
-			count=0;
-			SAMPLE=1;
-			end
 		end
 	else
-		begin
-		if(count<1300)
-			begin
-			count=count+1;
-			SAMPLE=0;
-			end
-		else
-			begin
-			count=0;
-			SAMPLE=1;
-			end
-		end
+	begin
 		
 	if(const_count<5200)
 		begin
@@ -52,6 +24,7 @@ begin
 		const_count=0;
 		CONST_9600=1;
 		end
+	end
 end
 
 endmodule

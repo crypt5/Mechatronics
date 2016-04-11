@@ -1,5 +1,5 @@
 Analysis & Synthesis report for SerialtoSPI
-Fri Mar 25 23:09:10 2016
+Sun Apr 10 20:29:31 2016
 Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
 
 
@@ -14,14 +14,17 @@ Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis RAM Summary
-  9. General Register Statistics
- 10. Registers Packed Into Inferred Megafunctions
- 11. Source assignments for MEM_32_BYTE:inst2|altsyncram:mem_rtl_0|altsyncram_qsc1:auto_generated
- 12. Parameter Settings for Inferred Entity Instance: MEM_32_BYTE:inst2|altsyncram:mem_rtl_0
- 13. altsyncram Parameter Settings by Entity Instance
- 14. Post-Synthesis Netlist Statistics for Top Partition
- 15. Elapsed Time Per Partition
- 16. Analysis & Synthesis Messages
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Registers Packed Into Inferred Megafunctions
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Source assignments for MEM_32_BYTE:inst3|altsyncram:mem_rtl_0|altsyncram_qsc1:auto_generated
+ 15. Parameter Settings for Inferred Entity Instance: MEM_32_BYTE:inst3|altsyncram:mem_rtl_0
+ 16. altsyncram Parameter Settings by Entity Instance
+ 17. Post-Synthesis Netlist Statistics for Top Partition
+ 18. Elapsed Time Per Partition
+ 19. Analysis & Synthesis Messages
 
 
 
@@ -48,16 +51,16 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Mar 25 23:09:10 2016       ;
+; Analysis & Synthesis Status        ; Successful - Sun Apr 10 20:29:31 2016       ;
 ; Quartus Prime Version              ; 15.1.0 Build 185 10/21/2015 SJ Lite Edition ;
 ; Revision Name                      ; SerialtoSPI                                 ;
 ; Top-level Entity Name              ; SerialtoSPI                                 ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 17                                          ;
-;     Total combinational functions  ; 17                                          ;
-;     Dedicated logic registers      ; 7                                           ;
-; Total registers                    ; 7                                           ;
-; Total pins                         ; 27                                          ;
+; Total logic elements               ; 58                                          ;
+;     Total combinational functions  ; 58                                          ;
+;     Dedicated logic registers      ; 37                                          ;
+; Total registers                    ; 37                                          ;
+; Total pins                         ; 14                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 256                                         ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -169,6 +172,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                               ; Library ;
 +----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------+---------+
 ; SerialtoSPI.bdf                  ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Kenneth/Desktop/Mechatronics/Serial to SPI/SerialtoSPI.bdf        ;         ;
+; SERIAL_IN.v                      ; yes             ; User Verilog HDL File              ; C:/Users/Kenneth/Desktop/Mechatronics/Serial to SPI/SERIAL_IN.v            ;         ;
+; SERIAL_OUT.v                     ; yes             ; User Verilog HDL File              ; C:/Users/Kenneth/Desktop/Mechatronics/Serial to SPI/SERIAL_OUT.v           ;         ;
 ; MEM_32_BYTE.v                    ; yes             ; User Verilog HDL File              ; C:/Users/Kenneth/Desktop/Mechatronics/Serial to SPI/MEM_32_BYTE.v          ;         ;
 ; altsyncram.tdf                   ; yes             ; Megafunction                       ; c:/altera/15/quartus/libraries/megafunctions/altsyncram.tdf                ;         ;
 ; stratix_ram_block.inc            ; yes             ; Megafunction                       ; c:/altera/15/quartus/libraries/megafunctions/stratix_ram_block.inc         ;         ;
@@ -183,37 +188,37 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------+---------+
 
 
-+----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary              ;
-+---------------------------------------------+------------+
-; Resource                                    ; Usage      ;
-+---------------------------------------------+------------+
-; Estimated Total logic elements              ; 17         ;
-;                                             ;            ;
-; Total combinational functions               ; 17         ;
-; Logic element usage by number of LUT inputs ;            ;
-;     -- 4 input functions                    ; 3          ;
-;     -- 3 input functions                    ; 5          ;
-;     -- <=2 input functions                  ; 9          ;
-;                                             ;            ;
-; Logic elements by mode                      ;            ;
-;     -- normal mode                          ; 12         ;
-;     -- arithmetic mode                      ; 5          ;
-;                                             ;            ;
-; Total registers                             ; 7          ;
-;     -- Dedicated logic registers            ; 7          ;
-;     -- I/O registers                        ; 0          ;
-;                                             ;            ;
-; I/O pins                                    ; 27         ;
-; Total memory bits                           ; 256        ;
-;                                             ;            ;
-; Embedded Multiplier 9-bit elements          ; 0          ;
-;                                             ;            ;
-; Maximum fan-out node                        ; LOAD~input ;
-; Maximum fan-out                             ; 15         ;
-; Total fan-out                               ; 214        ;
-; Average fan-out                             ; 2.49       ;
-+---------------------------------------------+------------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 58        ;
+;                                             ;           ;
+; Total combinational functions               ; 58        ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 27        ;
+;     -- 3 input functions                    ; 6         ;
+;     -- <=2 input functions                  ; 25        ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 42        ;
+;     -- arithmetic mode                      ; 16        ;
+;                                             ;           ;
+; Total registers                             ; 37        ;
+;     -- Dedicated logic registers            ; 37        ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 14        ;
+; Total memory bits                           ; 256       ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; CLK~input ;
+; Maximum fan-out                             ; 28        ;
+; Total fan-out                               ; 435       ;
+; Average fan-out                             ; 3.32      ;
++---------------------------------------------+-----------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -221,10 +226,12 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                ; Library Name ;
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------+--------------+
-; |SerialtoSPI                              ; 17 (0)            ; 7 (0)        ; 256         ; 0            ; 0       ; 0         ; 27   ; 0            ; |SerialtoSPI                                                                       ; work         ;
-;    |MEM_32_BYTE:inst2|                    ; 17 (17)           ; 7 (7)        ; 256         ; 0            ; 0       ; 0         ; 0    ; 0            ; |SerialtoSPI|MEM_32_BYTE:inst2                                                     ; work         ;
-;       |altsyncram:mem_rtl_0|              ; 0 (0)             ; 0 (0)        ; 256         ; 0            ; 0       ; 0         ; 0    ; 0            ; |SerialtoSPI|MEM_32_BYTE:inst2|altsyncram:mem_rtl_0                                ; work         ;
-;          |altsyncram_qsc1:auto_generated| ; 0 (0)             ; 0 (0)        ; 256         ; 0            ; 0       ; 0         ; 0    ; 0            ; |SerialtoSPI|MEM_32_BYTE:inst2|altsyncram:mem_rtl_0|altsyncram_qsc1:auto_generated ; work         ;
+; |SerialtoSPI                              ; 58 (0)            ; 37 (0)       ; 256         ; 0            ; 0       ; 0         ; 14   ; 0            ; |SerialtoSPI                                                                       ; work         ;
+;    |MEM_32_BYTE:inst3|                    ; 10 (10)           ; 9 (9)        ; 256         ; 0            ; 0       ; 0         ; 0    ; 0            ; |SerialtoSPI|MEM_32_BYTE:inst3                                                     ; work         ;
+;       |altsyncram:mem_rtl_0|              ; 0 (0)             ; 0 (0)        ; 256         ; 0            ; 0       ; 0         ; 0    ; 0            ; |SerialtoSPI|MEM_32_BYTE:inst3|altsyncram:mem_rtl_0                                ; work         ;
+;          |altsyncram_qsc1:auto_generated| ; 0 (0)             ; 0 (0)        ; 256         ; 0            ; 0       ; 0         ; 0    ; 0            ; |SerialtoSPI|MEM_32_BYTE:inst3|altsyncram:mem_rtl_0|altsyncram_qsc1:auto_generated ; work         ;
+;    |SERIAL_IN:inst2|                      ; 23 (23)           ; 14 (14)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SerialtoSPI|SERIAL_IN:inst2                                                       ; work         ;
+;    |SERIAL_OUT:inst4|                     ; 25 (25)           ; 14 (14)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SerialtoSPI|SERIAL_OUT:inst4                                                      ; work         ;
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -234,8 +241,18 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
 ; Name                                                                             ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
 +----------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
-; MEM_32_BYTE:inst2|altsyncram:mem_rtl_0|altsyncram_qsc1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32           ; 8            ; 32           ; 8            ; 256  ; None ;
+; MEM_32_BYTE:inst3|altsyncram:mem_rtl_0|altsyncram_qsc1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32           ; 8            ; 32           ; 8            ; 256  ; None ;
 +----------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+
+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; SERIAL_OUT:inst4|CLEAR                ; Stuck at VCC due to stuck port data_in ;
+; Total Number of Removed Registers = 1 ;                                        ;
++---------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -243,14 +260,24 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 7     ;
-; Number of registers using Synchronous Clear  ; 0     ;
+; Total registers                              ; 37    ;
+; Number of registers using Synchronous Clear  ; 5     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 7     ;
+; Number of registers using Asynchronous Clear ; 28    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 20    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; SERIAL_OUT:inst4|RX_D                  ; 1       ;
+; Total number of inverted registers = 1 ;         ;
++----------------------------------------+---------+
 
 
 +----------------------------------------------------------------------+
@@ -258,12 +285,22 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------+-----------------------------+------+
 ; Register Name                   ; Megafunction                ; Type ;
 +---------------------------------+-----------------------------+------+
-; MEM_32_BYTE:inst2|BYTEOUT[0..7] ; MEM_32_BYTE:inst2|mem_rtl_0 ; RAM  ;
+; MEM_32_BYTE:inst3|BYTEOUT[0..7] ; MEM_32_BYTE:inst3|mem_rtl_0 ; RAM  ;
 +---------------------------------+-----------------------------+------+
 
 
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------+
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |SerialtoSPI|SERIAL_OUT:inst4|ADDR[4] ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |SerialtoSPI|SERIAL_IN:inst2|count[3] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------+
+
+
 +----------------------------------------------------------------------------------------------+
-; Source assignments for MEM_32_BYTE:inst2|altsyncram:mem_rtl_0|altsyncram_qsc1:auto_generated ;
+; Source assignments for MEM_32_BYTE:inst3|altsyncram:mem_rtl_0|altsyncram_qsc1:auto_generated ;
 +---------------------------------+--------------------+------+--------------------------------+
 ; Assignment                      ; Value              ; From ; To                             ;
 +---------------------------------+--------------------+------+--------------------------------+
@@ -272,7 +309,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 
 +-----------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: MEM_32_BYTE:inst2|altsyncram:mem_rtl_0 ;
+; Parameter Settings for Inferred Entity Instance: MEM_32_BYTE:inst3|altsyncram:mem_rtl_0 ;
 +------------------------------------+----------------------+-----------------------------+
 ; Parameter Name                     ; Value                ; Type                        ;
 +------------------------------------+----------------------+-----------------------------+
@@ -338,7 +375,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Name                                      ; Value                                  ;
 +-------------------------------------------+----------------------------------------+
 ; Number of entity instances                ; 1                                      ;
-; Entity Instance                           ; MEM_32_BYTE:inst2|altsyncram:mem_rtl_0 ;
+; Entity Instance                           ; MEM_32_BYTE:inst3|altsyncram:mem_rtl_0 ;
 ;     -- OPERATION_MODE                     ; DUAL_PORT                              ;
 ;     -- WIDTH_A                            ; 8                                      ;
 ;     -- NUMWORDS_A                         ; 32                                     ;
@@ -357,21 +394,27 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 27                          ;
-; cycloneiii_ff         ; 7                           ;
-;     CLR               ; 7                           ;
-; cycloneiii_lcell_comb ; 17                          ;
-;     arith             ; 5                           ;
-;         2 data inputs ; 5                           ;
-;     normal            ; 12                          ;
-;         1 data inputs ; 1                           ;
-;         2 data inputs ; 3                           ;
+; boundary_port         ; 14                          ;
+; cycloneiii_ff         ; 37                          ;
+;     CLR               ; 15                          ;
+;     ENA               ; 7                           ;
+;     ENA CLR           ; 8                           ;
+;     ENA CLR SCLR      ; 5                           ;
+;     plain             ; 2                           ;
+; cycloneiii_lcell_comb ; 60                          ;
+;     arith             ; 16                          ;
+;         2 data inputs ; 15                          ;
+;         3 data inputs ; 1                           ;
+;     normal            ; 44                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 7                           ;
 ;         3 data inputs ; 5                           ;
-;         4 data inputs ; 3                           ;
+;         4 data inputs ; 27                          ;
 ; cycloneiii_ram_block  ; 8                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 4.40                        ;
-; Average LUT depth     ; 1.99                        ;
+; Max LUT depth         ; 4.00                        ;
+; Average LUT depth     ; 2.03                        ;
 +-----------------------+-----------------------------+
 
 
@@ -390,7 +433,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
-    Info: Processing started: Fri Mar 25 23:08:59 2016
+    Info: Processing started: Sun Apr 10 20:29:20 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SerialtoSPI -c SerialtoSPI
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file serialtospi.bdf
@@ -404,10 +447,17 @@ Info (12021): Found 1 design units, including 1 entities, in source file clock.v
 Info (12021): Found 1 design units, including 1 entities, in source file mem_32_byte.v
     Info (12023): Found entity 1: MEM_32_BYTE File: C:/Users/Kenneth/Desktop/Mechatronics/Serial to SPI/MEM_32_BYTE.v Line: 1
 Info (12127): Elaborating entity "SerialtoSPI" for the top level hierarchy
-Info (12128): Elaborating entity "MEM_32_BYTE" for hierarchy "MEM_32_BYTE:inst2"
-Warning (10230): Verilog HDL assignment warning at MEM_32_BYTE.v(27): truncated value with size 32 to match size of target (6) File: C:/Users/Kenneth/Desktop/Mechatronics/Serial to SPI/MEM_32_BYTE.v Line: 27
+Info (12128): Elaborating entity "MEM_32_BYTE" for hierarchy "MEM_32_BYTE:inst3"
+Warning (10230): Verilog HDL assignment warning at MEM_32_BYTE.v(27): truncated value with size 32 to match size of target (8) File: C:/Users/Kenneth/Desktop/Mechatronics/Serial to SPI/MEM_32_BYTE.v Line: 27
+Info (12128): Elaborating entity "SERIAL_IN" for hierarchy "SERIAL_IN:inst2"
+Warning (10230): Verilog HDL assignment warning at SERIAL_IN.v(35): truncated value with size 32 to match size of target (4) File: C:/Users/Kenneth/Desktop/Mechatronics/Serial to SPI/SERIAL_IN.v Line: 35
+Warning (10230): Verilog HDL assignment warning at SERIAL_IN.v(43): truncated value with size 32 to match size of target (4) File: C:/Users/Kenneth/Desktop/Mechatronics/Serial to SPI/SERIAL_IN.v Line: 43
+Info (12128): Elaborating entity "SERIAL_OUT" for hierarchy "SERIAL_OUT:inst4"
+Warning (10230): Verilog HDL assignment warning at SERIAL_OUT.v(45): truncated value with size 32 to match size of target (7) File: C:/Users/Kenneth/Desktop/Mechatronics/Serial to SPI/SERIAL_OUT.v Line: 45
+Warning (10230): Verilog HDL assignment warning at SERIAL_OUT.v(47): truncated value with size 32 to match size of target (5) File: C:/Users/Kenneth/Desktop/Mechatronics/Serial to SPI/SERIAL_OUT.v Line: 47
+Warning (10230): Verilog HDL assignment warning at SERIAL_OUT.v(57): truncated value with size 32 to match size of target (7) File: C:/Users/Kenneth/Desktop/Mechatronics/Serial to SPI/SERIAL_OUT.v Line: 57
 Info (19000): Inferred 1 megafunctions from design logic
-    Info (276029): Inferred altsyncram megafunction from the following design logic: "MEM_32_BYTE:inst2|mem_rtl_0" 
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "MEM_32_BYTE:inst3|mem_rtl_0" 
         Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
         Info (286033): Parameter WIDTH_A set to 8
         Info (286033): Parameter WIDTHAD_A set to 5
@@ -422,8 +472,8 @@ Info (19000): Inferred 1 megafunctions from design logic
         Info (286033): Parameter ADDRESS_REG_B set to CLOCK1
         Info (286033): Parameter INDATA_ACLR_A set to NONE
         Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
-Info (12130): Elaborated megafunction instantiation "MEM_32_BYTE:inst2|altsyncram:mem_rtl_0"
-Info (12133): Instantiated megafunction "MEM_32_BYTE:inst2|altsyncram:mem_rtl_0" with the following parameter:
+Info (12130): Elaborated megafunction instantiation "MEM_32_BYTE:inst3|altsyncram:mem_rtl_0"
+Info (12133): Instantiated megafunction "MEM_32_BYTE:inst3|altsyncram:mem_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
     Info (12134): Parameter "WIDTH_A" = "8"
     Info (12134): Parameter "WIDTHAD_A" = "5"
@@ -440,17 +490,21 @@ Info (12133): Instantiated megafunction "MEM_32_BYTE:inst2|altsyncram:mem_rtl_0"
     Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_qsc1.tdf
     Info (12023): Found entity 1: altsyncram_qsc1 File: C:/Users/Kenneth/Desktop/Mechatronics/Serial to SPI/db/altsyncram_qsc1.tdf Line: 28
+Info (13000): Registers with preset signals will power-up high File: C:/Users/Kenneth/Desktop/Mechatronics/Serial to SPI/SERIAL_OUT.v Line: 4
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "CLEAR" is stuck at VCC
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 56 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 17 input pins
+Info (21057): Implemented 82 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
     Info (21059): Implemented 10 output pins
-    Info (21061): Implemented 21 logic cells
+    Info (21061): Implemented 60 logic cells
     Info (21064): Implemented 8 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 769 megabytes
-    Info: Processing ended: Fri Mar 25 23:09:10 2016
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 9 warnings
+    Info: Peak virtual memory: 771 megabytes
+    Info: Processing ended: Sun Apr 10 20:29:31 2016
     Info: Elapsed time: 00:00:11
     Info: Total CPU time (on all processors): 00:00:25
 

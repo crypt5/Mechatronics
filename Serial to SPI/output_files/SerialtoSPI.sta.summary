@@ -2,52 +2,112 @@
 TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1200mV 85C Model Setup 'LOAD'
-Slack : -1.338
-TNS   : -9.361
+Type  : Slow 1200mV 85C Model Setup 'CLK'
+Slack : -4.280
+TNS   : -32.323
 
-Type  : Slow 1200mV 85C Model Hold 'LOAD'
-Slack : 0.325
+Type  : Slow 1200mV 85C Model Setup 'SERIAL_IN:inst2|LOAD'
+Slack : -1.077
+TNS   : -9.973
+
+Type  : Slow 1200mV 85C Model Setup 'SERIAL_OUT:inst4|READ'
+Slack : -0.007
+TNS   : -0.007
+
+Type  : Slow 1200mV 85C Model Hold 'SERIAL_IN:inst2|LOAD'
+Slack : 0.195
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'LOAD'
-Slack : -3.000
-TNS   : -16.522
-
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'READ'
-Slack : -3.000
-TNS   : -5.174
-
-Type  : Slow 1200mV 0C Model Setup 'LOAD'
-Slack : -1.079
-TNS   : -7.270
-
-Type  : Slow 1200mV 0C Model Hold 'LOAD'
-Slack : 0.300
+Type  : Slow 1200mV 85C Model Hold 'CLK'
+Slack : 0.357
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'LOAD'
-Slack : -3.000
-TNS   : -16.522
-
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'READ'
-Slack : -3.000
-TNS   : -5.174
-
-Type  : Fast 1200mV 0C Model Setup 'LOAD'
-Slack : -0.291
-TNS   : -1.098
-
-Type  : Fast 1200mV 0C Model Hold 'LOAD'
-Slack : 0.160
+Type  : Slow 1200mV 85C Model Hold 'SERIAL_OUT:inst4|READ'
+Slack : 0.391
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'LOAD'
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLK'
 Slack : -3.000
-TNS   : -13.785
+TNS   : -31.000
 
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'READ'
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SERIAL_IN:inst2|LOAD'
+Slack : -2.174
+TNS   : -15.522
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SERIAL_OUT:inst4|READ'
+Slack : -2.174
+TNS   : -2.174
+
+Type  : Slow 1200mV 0C Model Setup 'CLK'
+Slack : -3.735
+TNS   : -26.192
+
+Type  : Slow 1200mV 0C Model Setup 'SERIAL_IN:inst2|LOAD'
+Slack : -0.867
+TNS   : -7.699
+
+Type  : Slow 1200mV 0C Model Setup 'SERIAL_OUT:inst4|READ'
+Slack : 0.049
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'SERIAL_IN:inst2|LOAD'
+Slack : 0.214
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'CLK'
+Slack : 0.311
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'SERIAL_OUT:inst4|READ'
+Slack : 0.387
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLK'
 Slack : -3.000
-TNS   : -4.118
+TNS   : -31.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SERIAL_IN:inst2|LOAD'
+Slack : -2.174
+TNS   : -15.522
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SERIAL_OUT:inst4|READ'
+Slack : -2.174
+TNS   : -2.174
+
+Type  : Fast 1200mV 0C Model Setup 'CLK'
+Slack : -1.824
+TNS   : -6.175
+
+Type  : Fast 1200mV 0C Model Setup 'SERIAL_IN:inst2|LOAD'
+Slack : -0.185
+TNS   : -0.733
+
+Type  : Fast 1200mV 0C Model Setup 'SERIAL_OUT:inst4|READ'
+Slack : 0.371
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'SERIAL_IN:inst2|LOAD'
+Slack : 0.034
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'SERIAL_OUT:inst4|READ'
+Slack : 0.124
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'CLK'
+Slack : 0.186
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLK'
+Slack : -3.000
+TNS   : -32.561
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SERIAL_IN:inst2|LOAD'
+Slack : -1.000
+TNS   : -12.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SERIAL_OUT:inst4|READ'
+Slack : -1.000
+TNS   : -1.000
 
 ------------------------------------------------------------

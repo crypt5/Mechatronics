@@ -28,18 +28,14 @@ public class SerialTest implements SerialPortEventListener {
 		port.setFlowControlMode(SerialPort.FLOWCONTROL_RTSCTS_OUT);
 		// port.addEventListener(this);
 
-		port.writeByte((byte) 0b10011001);
-		Thread.sleep(2000);
-		String read = port.readHexString();
-		if (read != null)
-			System.out.println("Received: " + read);
-		else
-			System.out.println("NULL");
+		for (byte i = 'a'; i < 'a' + 32; i++) {
+			port.writeByte(i);
+		}
+		Thread.sleep(5000);
 
-		// port.writeString("ljkasflkhasdklfjhasdjkfhaklsdhfklajsdhfjklashdfklahsdjklfhasdjklfhajksdhfaklsdhf");
-		/*
-		 * while (true) Thread.sleep(1000000);
-		 */
+		String read = port.readString();
+		System.out.println(read);
+
 		port.closePort();
 
 	}

@@ -3,17 +3,17 @@ input LOAD,RTS,READ,RESET;
 input [7:0]BYTEIN;
 input [4:0]ADDR;
 output wire CTS;
-output reg FULL;
+output reg FULL=0;
 output reg [7:0]BYTEOUT;
 
 reg [7:0]mem[31:0];
-reg [5:0]load_count;
+reg [7:0]load_count;
 
 assign CTS=RTS&(!FULL);
 
 always@(posedge LOAD or negedge RESET)
 begin
-	if(!RESET)
+	if(RESET==0)
 		begin
 		load_count=0;
 		FULL=0;
@@ -27,7 +27,7 @@ begin
 			load_count=load_count+1;
 			FULL=0;
 			end
-		if(load_count==32)
+		else
 			begin
 			FULL=1;
 			end

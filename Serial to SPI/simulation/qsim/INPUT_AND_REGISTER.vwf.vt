@@ -19,7 +19,7 @@
 // the top level entity of the current Quartus project .The user can use this   
 // testbench to simulate his design using a third-party simulation tool .       
 // *****************************************************************************
-// Generated on "03/24/2016 17:21:28"
+// Generated on "04/10/2016 17:59:49"
                                                                                 
 // Verilog Test Bench (with test vectors) for design :                          SerialtoSPI
 // 
@@ -31,24 +31,38 @@ module SerialtoSPI_vlg_vec_tst();
 // constants                                           
 // general purpose registers
 reg CLK;
-reg RTS;
+reg RESET;
 reg TX_D;
 // wires                                               
-wire CTS;
-wire [7:0] LED;
+wire [7:0] BYTEOUT;
+wire LOAD;
+wire SLOW_CLK;
 
 // assign statements (if any)                          
 SerialtoSPI i1 (
 // port map - connection between master ports and signals/registers   
+	.BYTEOUT(BYTEOUT),
 	.CLK(CLK),
-	.CTS(CTS),
-	.LED(LED),
-	.RTS(RTS),
+	.LOAD(LOAD),
+	.RESET(RESET),
+	.SLOW_CLK(SLOW_CLK),
 	.TX_D(TX_D)
 );
 initial 
 begin 
 #1000000 $finish;
+end 
+
+// TX_D
+initial
+begin
+	TX_D = 1'b0;
+end 
+
+// RESET
+initial
+begin
+	RESET = 1'b1;
 end 
 
 // CLK
@@ -57,28 +71,6 @@ begin
 	CLK = 1'b0;
 	CLK = #5000 1'b1;
 	#5000;
-end 
-
-// TX_D
-initial
-begin
-	TX_D = 1'b1;
-	TX_D = #40000 1'b0;
-	TX_D = #40000 1'b1;
-	TX_D = #40000 1'b0;
-	TX_D = #40000 1'b1;
-	TX_D = #40000 1'b0;
-	TX_D = #40000 1'b1;
-	TX_D = #40000 1'b0;
-	TX_D = #40000 1'b1;
-	TX_D = #40000 1'b0;
-	TX_D = #40000 1'b1;
-end 
-
-// RTS
-initial
-begin
-	RTS = 1'b1;
 end 
 endmodule
 

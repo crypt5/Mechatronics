@@ -8,51 +8,11 @@
 					"strict" : false
 				},
 				{
+					"name" : "RX_D",
+					"strict" : false
+				},
+				{
 					"name" : "FULL",
-					"strict" : false
-				},
-				{
-					"name" : "OUTPUT[7]",
-					"strict" : false
-				},
-				{
-					"name" : "OUTPUT[6]",
-					"strict" : false
-				},
-				{
-					"name" : "OUTPUT[5]",
-					"strict" : false
-				},
-				{
-					"name" : "OUTPUT[4]",
-					"strict" : false
-				},
-				{
-					"name" : "OUTPUT[3]",
-					"strict" : false
-				},
-				{
-					"name" : "OUTPUT[2]",
-					"strict" : false
-				},
-				{
-					"name" : "OUTPUT[1]",
-					"strict" : false
-				},
-				{
-					"name" : "OUTPUT[0]",
-					"strict" : false
-				},
-				{
-					"name" : "RTS",
-					"strict" : false
-				},
-				{
-					"name" : "LOAD",
-					"strict" : false
-				},
-				{
-					"name" : "RESET",
 					"strict" : false
 				},
 				{
@@ -60,19 +20,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "BYTEIN[7]",
-					"strict" : false
-				},
-				{
-					"name" : "ADDR[0]",
-					"strict" : false
-				},
-				{
-					"name" : "ADDR[1]",
-					"strict" : false
-				},
-				{
-					"name" : "ADDR[2]",
+					"name" : "ADDR[4]",
 					"strict" : false
 				},
 				{
@@ -80,35 +28,31 @@
 					"strict" : false
 				},
 				{
-					"name" : "ADDR[4]",
+					"name" : "ADDR[2]",
 					"strict" : false
 				},
 				{
-					"name" : "BYTEIN[6]",
+					"name" : "ADDR[1]",
 					"strict" : false
 				},
 				{
-					"name" : "BYTEIN[5]",
+					"name" : "ADDR[0]",
 					"strict" : false
 				},
 				{
-					"name" : "BYTEIN[4]",
+					"name" : "RTS",
 					"strict" : false
 				},
 				{
-					"name" : "BYTEIN[3]",
+					"name" : "CLK",
 					"strict" : false
 				},
 				{
-					"name" : "BYTEIN[2]",
+					"name" : "RESET",
 					"strict" : false
 				},
 				{
-					"name" : "BYTEIN[1]",
-					"strict" : false
-				},
-				{
-					"name" : "BYTEIN[0]",
+					"name" : "TX_D",
 					"strict" : false
 				}
 			]

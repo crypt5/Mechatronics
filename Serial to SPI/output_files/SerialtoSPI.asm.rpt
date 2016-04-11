@@ -1,5 +1,5 @@
 Assembler report for SerialtoSPI
-Fri Mar 25 23:09:25 2016
+Sun Apr 10 20:29:45 2016
 Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
 
 
@@ -38,7 +38,7 @@ agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Fri Mar 25 23:09:25 2016 ;
+; Assembler Status      ; Successful - Sun Apr 10 20:29:45 2016 ;
 ; Revision Name         ; SerialtoSPI                           ;
 ; Top-level Entity Name ; SerialtoSPI                           ;
 ; Family                ; Cyclone IV E                          ;
@@ -68,8 +68,8 @@ agreement for further details.
 ; Option         ; Setting                                                                                   ;
 +----------------+-------------------------------------------------------------------------------------------+
 ; Device         ; EP4CE22F17C6                                                                              ;
-; JTAG usercode  ; 0x0013871F                                                                                ;
-; Checksum       ; 0x0013871F                                                                                ;
+; JTAG usercode  ; 0x0013EA45                                                                                ;
+; Checksum       ; 0x0013EA45                                                                                ;
 +----------------+-------------------------------------------------------------------------------------------+
 
 
@@ -79,14 +79,14 @@ agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
-    Info: Processing started: Fri Mar 25 23:09:23 2016
+    Info: Processing started: Sun Apr 10 20:29:44 2016
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off SerialtoSPI -c SerialtoSPI
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 712 megabytes
-    Info: Processing ended: Fri Mar 25 23:09:25 2016
-    Info: Elapsed time: 00:00:02
+    Info: Peak virtual memory: 713 megabytes
+    Info: Processing ended: Sun Apr 10 20:29:45 2016
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
 
