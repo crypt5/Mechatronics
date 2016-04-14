@@ -22,20 +22,22 @@ public class SerialTest implements SerialPortEventListener {
 	}
 
 	public void run() throws SerialPortException, InterruptedException {
-		port = new SerialPort("COM2");
+		port = new SerialPort("COM5");
 		port.openPort();
 		port.setParams(SerialPort.BAUDRATE_9600, SerialPort.DATABITS_8, SerialPort.STOPBITS_1, SerialPort.PARITY_NONE);
-		port.setFlowControlMode(SerialPort.FLOWCONTROL_RTSCTS_OUT);
+		port.setFlowControlMode(SerialPort.FLOWCONTROL_NONE);
+		Thread.sleep(5000);
 		// port.addEventListener(this);
 
-		for (byte i = 'a'; i < 'a' + 32; i++) {
-			port.writeByte(i);
-		}
-		Thread.sleep(5000);
-
+		byte[] buf = new byte[4];
+		buf[0] = 10;
+		buf[1] = 0;
+		buf[2] = 0;
+		buf[3] = 1;
+		port.writeBytes(buf);
 		String read = port.readString();
 		System.out.println(read);
-
+		// Thread.sleep(1000);
 		port.closePort();
 
 	}
