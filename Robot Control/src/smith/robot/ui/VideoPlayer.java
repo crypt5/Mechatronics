@@ -21,13 +21,9 @@ public class VideoPlayer implements Closeable, ActionListener {
 
 	private final EmbeddedMediaPlayerComponent mediaPlayerComponent;
 	private final JTextField address;
-	private final String[] options = {
-			":live-caching=0",
-			":file-caching=0",
-			":network-caching=0",
-			":sout = #transcode{vcodec=wmv,vb=800,scale=0.25,acodec=none,fps=30}",
-			":display", ":no-sout-rtp-sap", ":no-sout-standard-sap", ":ttl=1",
-			":sout-keep" };
+	private final String[] options = { ":live-caching=0", ":file-caching=0", ":network-caching=0",
+			":sout = #transcode{vcodec=wmv,vb=800,scale=0.25,acodec=none,fps=30}", ":display", ":no-sout-rtp-sap",
+			":no-sout-standard-sap", ":ttl=1", ":sout-keep" };
 
 	public VideoPlayer() {
 		mediaPlayerComponent = new EmbeddedMediaPlayerComponent();
@@ -37,8 +33,7 @@ public class VideoPlayer implements Closeable, ActionListener {
 
 	public JPanel getComponent() {
 		JPanel pane = new JPanel();
-		pane.setBorder(BorderFactory.createCompoundBorder(
-				BorderFactory.createEmptyBorder(3, 3, 3, 3),
+		pane.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3),
 				BorderFactory.createTitledBorder("Video Feed")));
 		pane.setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
@@ -67,7 +62,8 @@ public class VideoPlayer implements Closeable, ActionListener {
 		pane.add(new JSeparator(), c);
 
 		c.gridy = 2;
-		c.fill = GridBagConstraints.NONE;
+		c.weightx = 1;
+		c.weighty = 1;
 		pane.add(mediaPlayerComponent, c);
 		return pane;
 	}
@@ -81,8 +77,7 @@ public class VideoPlayer implements Closeable, ActionListener {
 	public void actionPerformed(ActionEvent a) {
 		String com = a.getActionCommand();
 		if (com.equals("Start")) {
-			mediaPlayerComponent.getMediaPlayer().playMedia(address.getText(),
-					options);
+			mediaPlayerComponent.getMediaPlayer().playMedia(address.getText(), options);
 		} else {
 			mediaPlayerComponent.getMediaPlayer().stop();
 		}
