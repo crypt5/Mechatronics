@@ -116,8 +116,11 @@ public class ControlWidget implements KeyListener {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					int sel = port.getSelectedIndex();
-					if (sel != -1)
+					if (sel != -1) {
+						if (serial.isValid())
+							serial.stop();
 						serial.start(port.getItemAt(sel));
+					}
 				} catch (SerialPortException s) {
 					s.printStackTrace();
 				}
@@ -212,7 +215,7 @@ public class ControlWidget implements KeyListener {
 					liftState = 0;
 				}
 				pane.requestFocus();
-				newData = true;
+				setNewData();
 			}
 		});
 		pane.add(lift, c);
@@ -254,12 +257,26 @@ public class ControlWidget implements KeyListener {
 
 	}
 
+	private void setNewData() {
+		synchronized (this) {
+			newData = true;
+		}
+	}
+
+	public void setDataRead() {
+		synchronized (this) {
+			newData = false;
+		}
+	}
+
 	public JPanel getComponet() {
 		return pane;
 	}
 
 	public Boolean isNewData() {
-		return newData;
+		synchronized (this) {
+			return newData;
+		}
 	}
 
 	public int getLeftDrive() {
@@ -278,6 +295,13 @@ public class ControlWidget implements KeyListener {
 		return manualMode;
 	}
 
+	public void setLift(int liftUp) {
+		if (liftUp == 1)
+			lift.setSelected(true);
+		else
+			lift.setSelected(false);
+	}
+
 	@Override
 	public void keyPressed(KeyEvent e) {
 		if (manualMode == 1) {
@@ -287,25 +311,25 @@ public class ControlWidget implements KeyListener {
 				forward.setBackground(Color.DARK_GRAY);
 				leftDrive = leftDrive + 128;
 				rightDrive = rightDrive + 128;
-				newData = true;
+				setNewData();
 				break;
 			case 'a':
 				left.setBackground(Color.DARK_GRAY);
 				leftDrive = leftDrive - 128;
 				rightDrive = rightDrive + 128;
-				newData = true;
+				setNewData();
 				break;
 			case 's':
 				back.setBackground(Color.DARK_GRAY);
 				leftDrive = leftDrive - 128;
 				rightDrive = rightDrive - 128;
-				newData = true;
+				setNewData();
 				break;
 			case 'd':
 				right.setBackground(Color.DARK_GRAY);
 				leftDrive = leftDrive + 128;
 				rightDrive = rightDrive - 128;
-				newData = true;
+				setNewData();
 				break;
 			}
 		}
@@ -320,25 +344,25 @@ public class ControlWidget implements KeyListener {
 				forward.setBackground(Color.LIGHT_GRAY);
 				leftDrive = leftDrive - 128;
 				rightDrive = rightDrive - 128;
-				newData = true;
+				setNewData();
 				break;
 			case 'a':
 				left.setBackground(Color.LIGHT_GRAY);
 				leftDrive = leftDrive + 128;
 				rightDrive = rightDrive - 128;
-				newData = true;
+				setNewData();
 				break;
 			case 's':
 				back.setBackground(Color.LIGHT_GRAY);
 				leftDrive = leftDrive + 128;
 				rightDrive = rightDrive + 128;
-				newData = true;
+				setNewData();
 				break;
 			case 'd':
 				right.setBackground(Color.LIGHT_GRAY);
 				leftDrive = leftDrive - 128;
 				rightDrive = rightDrive + 128;
-				newData = true;
+				setNewData();
 				break;
 			}
 		}

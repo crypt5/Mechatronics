@@ -135,6 +135,106 @@ public class SensorDisplay {
 		return sensor;
 	}
 
+	public void setDriveLeft(int driveLeft) {
+		this.driveLeft.setText("" + driveLeft);
+	}
+
+	public void setDriveRight(int driveRight) {
+		this.driveRight.setText("" + driveRight);
+	}
+
+	public void setDriveLift(int driveLift) {
+		this.driveLift.setText("" + driveLift);
+	}
+
+	public void setDriveIR(int driveIR) {
+		this.driveIR.setText("" + driveIR);
+	}
+
+	public void setSensorFrontUltra(int sensorFrontUltra) {
+		this.sensorFrontUltra.setText("" + sensorFrontUltra);
+	}
+
+	public void setSensorSideUltra(int sensorSideUltra) {
+		this.sensorSideUltra.setText("" + sensorSideUltra);
+	}
+
+	public void setSensorFrontIR(int sensorFrontIR) {
+		this.sensorFrontIR.setText("" + sensorFrontIR);
+	}
+
+	public void setSensorSideIR(int sensorSideIR) {
+		this.sensorSideIR.setText("" + sensorSideIR);
+	}
+
+	public void setSensorAcclX(int sensorAcclX) {
+		this.sensorAcclX.setText("" + sensorAcclX);
+	}
+
+	public void setSensorAcclY(int sensorAcclY) {
+		this.sensorAcclY.setText("" + sensorAcclY);
+	}
+
+	public void setSensorAcclZ(int sensorAcclZ) {
+		this.sensorAcclZ.setText("" + sensorAcclZ);
+	}
+
+	public void setGreenLED(int greenLED) {
+		this.greenLED.setText("" + greenLED);
+	}
+
+	public void setYellowLED(int yellowLED) {
+		this.yellowLED.setText("" + yellowLED);
+	}
+
+	public void setRedLED(int redLED) {
+		this.redLED.setText("" + redLED);
+	}
+
+	public void setSwitch1(int switch1) {
+		this.switch1.setText("" + switch1);
+	}
+
+	public void setSwitch2(int switch2) {
+		this.switch2.setText("" + switch2);
+	}
+
+	public void setSwitch3(int switch3) {
+		this.switch3.setText("" + switch3);
+	}
+
+	public void setSwitch4(int switch4) {
+		this.switch4.setText("" + switch4);
+	}
+
+	public void setLiftTop(int liftTop) {
+		this.liftTop.setText("" + liftTop);
+	}
+
+	public void setLiftBot(int liftBot) {
+		this.liftBot.setText("" + liftBot);
+	}
+
+	public void setButton(int button) {
+		this.button.setText("" + button);
+	}
+
+	public void setIndDrive(int indDrive) {
+		this.indDrive.setText("" + indDrive);
+	}
+
+	public void setIndLift(int indLift) {
+		this.indLift.setText("" + indLift);
+	}
+
+	public void setIndManual(int indManual) {
+		this.indManual.setText("" + indManual);
+	}
+
+	public void setIndState(int indState) {
+		this.indState.setText("" + indState);
+	}
+
 	private JPanel indicatorPane() {
 		JPanel ind = new JPanel();
 		ind.setLayout(new GridBagLayout());

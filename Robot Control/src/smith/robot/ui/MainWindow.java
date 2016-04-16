@@ -44,13 +44,14 @@ public class MainWindow extends WindowAdapter {
 		JPanel bot = new JPanel();
 		bot.setLayout(new GridLayout(1, 2));
 		bot.add(sensor.getComponet());
-		bot.add(vision.getComponet());
+		bot.add(vision);
 
 		disp.add(bot);
 
 		frame.setContentPane(disp);
 		frame.pack();
 		frame.setLocationRelativeTo(null);
+		frame.setResizable(false);
 		frame.setVisible(true);
 	}
 
