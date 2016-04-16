@@ -29,7 +29,7 @@ import smith.robot.Serial;
 public class ControlWidget implements KeyListener {
 
 	private int leftDrive, rightDrive, liftState, manualMode;
-	private Boolean newData;
+	private Boolean newData, W_pressed, A_pressed, S_pressed, D_pressed;
 
 	private JPanel pane;
 	private JLabel forward, back, left, right, focus;
@@ -44,6 +44,10 @@ public class ControlWidget implements KeyListener {
 		newData = false;
 		pane = new JPanel();
 		buildPane();
+		W_pressed = false;
+		A_pressed = false;
+		S_pressed = false;
+		D_pressed = false;
 	}
 
 	private void buildPane() {
@@ -263,7 +267,7 @@ public class ControlWidget implements KeyListener {
 		}
 	}
 
-	public void setDataRead() {
+	public void clearFlag() {
 		synchronized (this) {
 			newData = false;
 		}
@@ -308,28 +312,40 @@ public class ControlWidget implements KeyListener {
 			char key = e.getKeyChar();
 			switch (key) {
 			case 'w':
-				forward.setBackground(Color.DARK_GRAY);
-				leftDrive = leftDrive + 128;
-				rightDrive = rightDrive + 128;
-				setNewData();
+				if (W_pressed == false) {
+					forward.setBackground(Color.DARK_GRAY);
+					leftDrive = leftDrive + 128;
+					rightDrive = rightDrive + 128;
+					setNewData();
+					W_pressed = true;
+				}
 				break;
 			case 'a':
-				left.setBackground(Color.DARK_GRAY);
-				leftDrive = leftDrive - 128;
-				rightDrive = rightDrive + 128;
-				setNewData();
+				if (A_pressed == false) {
+					left.setBackground(Color.DARK_GRAY);
+					leftDrive = leftDrive - 128;
+					rightDrive = rightDrive + 128;
+					setNewData();
+					A_pressed = true;
+				}
 				break;
 			case 's':
-				back.setBackground(Color.DARK_GRAY);
-				leftDrive = leftDrive - 128;
-				rightDrive = rightDrive - 128;
-				setNewData();
+				if (S_pressed == false) {
+					back.setBackground(Color.DARK_GRAY);
+					leftDrive = leftDrive - 128;
+					rightDrive = rightDrive - 128;
+					setNewData();
+					S_pressed = true;
+				}
 				break;
 			case 'd':
-				right.setBackground(Color.DARK_GRAY);
-				leftDrive = leftDrive + 128;
-				rightDrive = rightDrive - 128;
-				setNewData();
+				if (D_pressed == false) {
+					right.setBackground(Color.DARK_GRAY);
+					leftDrive = leftDrive + 128;
+					rightDrive = rightDrive - 128;
+					setNewData();
+					D_pressed = true;
+				}
 				break;
 			}
 		}
@@ -341,28 +357,40 @@ public class ControlWidget implements KeyListener {
 			char key = e.getKeyChar();
 			switch (key) {
 			case 'w':
-				forward.setBackground(Color.LIGHT_GRAY);
-				leftDrive = leftDrive - 128;
-				rightDrive = rightDrive - 128;
-				setNewData();
+				if (W_pressed == true) {
+					forward.setBackground(Color.LIGHT_GRAY);
+					leftDrive = leftDrive - 128;
+					rightDrive = rightDrive - 128;
+					setNewData();
+					W_pressed = false;
+				}
 				break;
 			case 'a':
-				left.setBackground(Color.LIGHT_GRAY);
-				leftDrive = leftDrive + 128;
-				rightDrive = rightDrive - 128;
-				setNewData();
+				if (A_pressed == true) {
+					left.setBackground(Color.LIGHT_GRAY);
+					leftDrive = leftDrive + 128;
+					rightDrive = rightDrive - 128;
+					setNewData();
+					A_pressed = false;
+				}
 				break;
 			case 's':
-				back.setBackground(Color.LIGHT_GRAY);
-				leftDrive = leftDrive + 128;
-				rightDrive = rightDrive + 128;
-				setNewData();
+				if (S_pressed == true) {
+					back.setBackground(Color.LIGHT_GRAY);
+					leftDrive = leftDrive + 128;
+					rightDrive = rightDrive + 128;
+					setNewData();
+					S_pressed = false;
+				}
 				break;
 			case 'd':
-				right.setBackground(Color.LIGHT_GRAY);
-				leftDrive = leftDrive - 128;
-				rightDrive = rightDrive + 128;
-				setNewData();
+				if (D_pressed == true) {
+					right.setBackground(Color.LIGHT_GRAY);
+					leftDrive = leftDrive - 128;
+					rightDrive = rightDrive + 128;
+					setNewData();
+					D_pressed = false;
+				}
 				break;
 			}
 		}

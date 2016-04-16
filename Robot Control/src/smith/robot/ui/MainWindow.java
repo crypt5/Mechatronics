@@ -23,7 +23,7 @@ public class MainWindow extends WindowAdapter {
 		player = new VideoPlayer();
 		control = new ControlWidget();
 		sensor = new SensorDisplay();
-		vision = new RoboticVision();
+		vision = new RoboticVision(sensor);
 		serial = new Serial(control, sensor, vision);
 
 		control.serial = serial;

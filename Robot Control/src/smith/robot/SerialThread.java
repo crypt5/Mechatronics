@@ -61,7 +61,7 @@ public class SerialThread extends Thread {
 						data[19 + (i * 4)] = 0;
 						place = (place + 1) % list.length;
 					}
-					control.setDataRead();
+					control.clearFlag();
 				} else {
 					for (int i = 0; i < 8; i++) {
 						data[0 + (i * 4)] = list[place];
@@ -71,8 +71,15 @@ public class SerialThread extends Thread {
 						place = (place + 1) % list.length;
 					}
 				}
-				port.writeBytes(data);
-				Thread.sleep(250);
+				byte[] corrected = new byte[32];
+				for (int i = 0; i < 8; i++) {
+					corrected[0 + (i * 4)] = data[3 + (i * 4)];
+					corrected[1 + (i * 4)] = data[2 + (i * 4)];
+					corrected[2 + (i * 4)] = data[1 + (i * 4)];
+					corrected[3 + (i * 4)] = data[0 + (i * 4)];
+				}
+				port.writeBytes(corrected);
+				Thread.sleep(100);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

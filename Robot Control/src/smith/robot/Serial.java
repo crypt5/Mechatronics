@@ -72,14 +72,29 @@ public class Serial implements SerialPortEventListener {
 		}
 		if (data != null) {
 			for (int i = 0; i < 8; i++) {
-				process_message(data[0 + (i * 4)], data[1 + (i * 4)], data[2 + (i * 4)], data[3 + (i * 4)]);
+				process_message(data[3 + (i * 4)], data[2 + (i * 4)], data[1 + (i * 4)], data[0 + (i * 4)]);
 			}
 		}
 	}
 
 	private void process_message(int byte0, int byte1, int byte2, int byte3) {
 		switch (byte0) {
+		case Command.SET_LEFT_DRIVE:
+			if (byte2 == 0) {
+				disp.setDriveLeft(byte3);
+			} else {
+				disp.setDriveLeft(-1 * byte3);
+			}
+			break;
+		case Command.SET_RIGHT_DRIVE:
+			if (byte2 == 0) {
+				disp.setDriveRight(byte3);
+			} else {
+				disp.setDriveRight(byte3 * -1);
+			}
+			break;
 		case Command.SET_LIFT:
+			disp.setDriveLift(byte3);
 			control.setLift(byte3);
 			break;
 		case Command.SET_RED_LED:
@@ -154,7 +169,7 @@ public class Serial implements SerialPortEventListener {
 			disp.setIndDrive(byte3);
 			break;
 		case Command.SET_LIFT_BRIDGE_POWER:
-			disp.setIndDrive(byte3);
+			disp.setIndLift(byte3);
 			break;
 		case Command.SET_IR_READING:
 			vision.setDiatance(byte2, byte3);

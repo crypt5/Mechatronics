@@ -17,8 +17,8 @@ public:
 	int readIR();
 
 	// Read switches
-	int isLiftUp();	// Button Possibely Broke
-	int isLiftDown();// Button Possibely Broke
+	int isLiftUp();
+	int isLiftDown();
 	int isButtonPressed();
 	int isDrivePowered();
 	int isLiftPowered();
@@ -39,8 +39,8 @@ public:
 	void setRightDrive(int speed);
 	
 	// Lift functions
-	void raiseLift(); // Fix Button First
-	void lowerLift(); // Fix Button First
+	void raiseLift(); 
+	void lowerLift(); 
 
 	// IR Sensor Motor control
 	void setIRAngle(int angle);

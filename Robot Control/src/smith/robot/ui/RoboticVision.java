@@ -13,20 +13,27 @@ public class RoboticVision extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private int[] distances;
 	private int sideDistance, frontDistance;
+	private SensorDisplay disp;
 
-	public RoboticVision() {
+	public RoboticVision(SensorDisplay disp) {
 		super();
 		this.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5),
 				BorderFactory.createTitledBorder("Robotic Vision")));
-		distances = new int[36];
+		distances = new int[37];
 		for (int i = 0; i < distances.length; i++)
 			distances[i] = -1;
 
 		sideDistance = -1;
 		frontDistance = -1;
+		this.disp = disp;
 	}
 
 	public void setDiatance(int angle, int distance) {
+		if (angle == 90) {
+			disp.setSensorFrontIR(distance);
+		} else if (angle == 180) {
+			disp.setSensorSideIR(distance);
+		}
 		distances[angle / 5] = distance;
 		super.repaint();
 	}
@@ -68,10 +75,10 @@ public class RoboticVision extends JPanel {
 		for (int i = 1; i < distances.length; i++) {
 			if (distances[i - 1] > 0 && distances[i] > 0) {
 				Double x1, y1, x2, y2;
-				x1 = startX - distances[i - 1] * Math.cos((i - 1) * -5);
-				y1 = startY - distances[i - 1] * Math.sin((i - 1) * -5);
-				x2 = startX - distances[i] * Math.cos(i * -5);
-				y2 = startY - distances[i] * Math.sin(i * -5);
+				x1 = startX + (distances[i - 1] * Math.cos(Math.toRadians((i - 1) * -5)));
+				y1 = startY + (distances[i - 1] * Math.sin(Math.toRadians((i - 1) * -5)));
+				x2 = startX + (distances[i] * Math.cos(Math.toRadians(i * -5)));
+				y2 = startY + (distances[i] * Math.sin(Math.toRadians(i * -5)));
 				g2d.drawLine(x1.intValue(), y1.intValue(), x2.intValue(), y2.intValue());
 			}
 		}

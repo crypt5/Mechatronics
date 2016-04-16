@@ -7,6 +7,7 @@ Robot::Robot()
 {
 	inputPos=0;
 	haveCommands=0;
+
 	outputBuffer[0]=0;
 outputBuffer[1]=0;
 outputBuffer[2]=0;
@@ -88,8 +89,15 @@ int Robot::readFrontUltra()
 
 int Robot::readIR()
 {
-	int val=analogRead(IR_SENSOR_PING);
-	return 60.374 * pow(val/1000.0, -1.16);
+	
+	float val=analogRead(IR_SENSOR_PING);
+val=val+analogRead(IR_SENSOR_PING);
+val=val+analogRead(IR_SENSOR_PING);
+val=val+analogRead(IR_SENSOR_PING);
+val=val+analogRead(IR_SENSOR_PING);
+val=val/5;
+	val=map(val,0,4096,0,5000);
+	return (int)(61.573 * pow(val/1000.0, -1.16));
 }
 
 int Robot::isLiftUp()
@@ -107,6 +115,29 @@ int Robot::isLiftDown()
 	else 
 		return 0;
 }
+
+void Robot::raiseLift()
+{
+	while(isLiftUp()==0)
+	{
+		analogWrite(FORK_LIFT_0,120);
+		analogWrite(FORK_LIFT_1,0);
+	}
+	digitalWrite(FORK_LIFT_0,0);
+	digitalWrite(FORK_LIFT_1,0);
+}
+
+void Robot::lowerLift()
+{
+	while(isLiftDown()==0)
+	{
+		analogWrite(FORK_LIFT_0,0);
+		analogWrite(FORK_LIFT_1,60);
+	}
+	digitalWrite(FORK_LIFT_0,0);
+	digitalWrite(FORK_LIFT_1,0);
+}
+
 
 int Robot::isButtonPressed()
 {
