@@ -39,7 +39,7 @@ public class ControlWidget implements KeyListener {
 	public ControlWidget() {
 		leftDrive = 0;
 		rightDrive = 0;
-		liftState = 0;
+		liftState = 1;
 		manualMode = 0;
 		newData = false;
 		pane = new JPanel();

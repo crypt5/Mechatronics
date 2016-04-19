@@ -12,9 +12,9 @@ public:
 	Robot();
 
 	// Sensor Functions
-	int readSideUltra();
-	int readFrontUltra();
-	int readIR();
+	float readSideUltra();
+	float readFrontUltra();
+	float readIR();
 
 	// Read switches
 	int isLiftUp();
@@ -54,7 +54,7 @@ public:
 
 private:	
 	void pulse(int pin, int wait, int times);
-	int readUltra(int trig, int ping);
+	float readUltra(int trig, int ping);
 	Servo servo;
 	int inputBuffer[8];
 	int outputBuffer[8];

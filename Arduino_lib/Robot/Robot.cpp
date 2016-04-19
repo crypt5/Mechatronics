@@ -58,46 +58,47 @@ outputBuffer[7]=0;
 	digitalWrite(FRONT_ULTRA_TRIG,LOW);
 	digitalWrite(SIDE_ULTRA_TRIG,LOW);
 
-	analogReadResolution(12);
+	analogReadResolution(10);
 	servo.attach(IR_SENSOR_MOTOR);
 	
 
 
 }
 
-int Robot::readUltra(int trig, int ping)
+float Robot::readUltra(int trig, int ping)
 {
-long duration;
-digitalWrite(trig, LOW);
-delayMicroseconds(2); 
-digitalWrite(trig, HIGH);
-delayMicroseconds(10); 
-digitalWrite(trig, LOW);
-duration = pulseIn(ping, HIGH);
-  	return duration/58.2;
+	long duration=0;
+	for(int i=0;i<3;i++){
+		digitalWrite(trig, LOW);
+		delayMicroseconds(2);
+		digitalWrite(trig, HIGH);
+		delayMicroseconds(10); 
+		digitalWrite(trig, LOW);
+		duration = duration + pulseIn(ping, HIGH);
+		delay(40);
+	}
+	return (float)(duration/(3.0*58.8));
 }
 
-int Robot::readSideUltra()
+float Robot::readSideUltra()
 {
-	return readUltra(SIDE_ULTRA_TRIG,SIDE_ULTRA_PING);
+  	return readUltra(SIDE_ULTRA_TRIG,SIDE_ULTRA_PING);
 }
 
-int Robot::readFrontUltra()
+float Robot::readFrontUltra()
 {
 	return readUltra(FRONT_ULTRA_TRIG,FRONT_ULTRA_PING);
 }
 
-int Robot::readIR()
+float Robot::readIR()
 {
-	
-	float val=analogRead(IR_SENSOR_PING);
-val=val+analogRead(IR_SENSOR_PING);
-val=val+analogRead(IR_SENSOR_PING);
-val=val+analogRead(IR_SENSOR_PING);
-val=val+analogRead(IR_SENSOR_PING);
-val=val/5;
-	val=map(val,0,4096,0,5000);
-	return (int)(61.573 * pow(val/1000.0, -1.16));
+	float val=0;
+	for(int i=0;i<3;i++){
+		delay(40);
+		val=val+analogRead(IR_SENSOR_PING);
+	}
+	val=(val*3.3)/(3.0*1024.0);
+	return (32.0*pow(val,-1.1));
 }
 
 int Robot::isLiftUp()
@@ -122,6 +123,7 @@ void Robot::raiseLift()
 	{
 		analogWrite(FORK_LIFT_0,120);
 		analogWrite(FORK_LIFT_1,0);
+		delay(1);
 	}
 	digitalWrite(FORK_LIFT_0,0);
 	digitalWrite(FORK_LIFT_1,0);
@@ -133,6 +135,7 @@ void Robot::lowerLift()
 	{
 		analogWrite(FORK_LIFT_0,0);
 		analogWrite(FORK_LIFT_1,60);
+		delay(1);
 	}
 	digitalWrite(FORK_LIFT_0,0);
 	digitalWrite(FORK_LIFT_1,0);
