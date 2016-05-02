@@ -98,7 +98,7 @@ float Robot::readIR()
 		val=val+analogRead(IR_SENSOR_PING);
 	}
 	val=(val*3.3)/(3.0*1024.0);
-	return (32.0*pow(val,-1.1));
+	return (30.0*pow(val,-1.1));
 }
 
 int Robot::isLiftUp()

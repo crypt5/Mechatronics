@@ -14,21 +14,25 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
+import smith.robot.Main;
 import uk.co.caprica.vlcj.component.EmbeddedMediaPlayerComponent;
 
 public class VideoPlayer implements Closeable, ActionListener {
 
-	private final EmbeddedMediaPlayerComponent mediaPlayerComponent;
-	private final JTextField address;
-	private final String[] options = { ":live-caching=0", ":file-caching=0", ":network-caching=0",
+	private EmbeddedMediaPlayerComponent mediaPlayerComponent = null;
+	private JTextField address;
+	private String[] options = { ":live-caching=0", ":file-caching=0", ":network-caching=0",
 			":sout = #transcode{vcodec=wmv,vb=800,scale=0.25,acodec=none,fps=30}", ":display", ":no-sout-rtp-sap",
 			":no-sout-standard-sap", ":ttl=1", ":sout-keep" };
 
 	public VideoPlayer() {
-		mediaPlayerComponent = new EmbeddedMediaPlayerComponent();
+		if (Main.libs) {
+			mediaPlayerComponent = new EmbeddedMediaPlayerComponent();
+			mediaPlayerComponent.setPreferredSize(new Dimension(320, 240));
+		}
 		address = new JTextField(20);
-		mediaPlayerComponent.setPreferredSize(new Dimension(320, 240));
 	}
 
 	public JPanel getComponent() {
@@ -55,6 +59,11 @@ public class VideoPlayer implements Closeable, ActionListener {
 		stop.addActionListener(this);
 		pane.add(stop);
 
+		if (!Main.libs) {
+			start.setEnabled(false);
+			stop.setEnabled(false);
+		}
+
 		c.gridx = 0;
 		c.gridwidth = 4;
 		c.gridy = 1;
@@ -64,13 +73,17 @@ public class VideoPlayer implements Closeable, ActionListener {
 		c.gridy = 2;
 		c.weightx = 1;
 		c.weighty = 1;
-		pane.add(mediaPlayerComponent, c);
+		if (Main.libs)
+			pane.add(mediaPlayerComponent, c);
+		else
+			pane.add(new JLabel("VLC Not Installed", SwingConstants.CENTER), c);
 		return pane;
 	}
 
 	@Override
 	public void close() {
-		mediaPlayerComponent.release(true);
+		if (mediaPlayerComponent != null)
+			mediaPlayerComponent.release(true);
 	}
 
 	@Override

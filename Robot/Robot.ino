@@ -48,10 +48,10 @@ RF24 radio(RF_RADIO_PIN_0,RF_RADIO_PIN_1);
 #define IR_170 156
 #define IR_180 164
 
-#define DESIRED_SIDE_DIST 33 // Distance to stay from wall (about the center)
+#define DESIRED_SIDE_DIST 30 // Distance to stay from wall (about the center)
 
 // PID Gains
-#define KP 0.8
+#define KP 1.0
 #define KD 1.2
 #define KI 0.2
 
@@ -72,6 +72,8 @@ byte redLED=0,yellowLED=0,greenLED=0;
 byte manual=0;
 byte liftMot=0;
 byte loaded=0;
+byte stateSave;
+byte IROverrideSave;
 int compoundErr=0;
 
 // Correction factors to account for 
@@ -81,7 +83,7 @@ float irCorrect=0;
 byte hyp=22;
 
 void setup() {
-  Serial.begin(115200);
+  //Serial.begin(115200);
   robot.setUpRadio(radio);
   attachInterrupt(digitalPinToInterrupt(BUTTON),buttonISR,RISING);
   byte errCode=0;
@@ -101,6 +103,8 @@ void setup() {
   if(robot.readIR()==0)
     errCode=errCode|ERR_IR;
 
+   robot.raiseLift();
+
   // Wait for Override/Start Button
   int errNum=0;
   while(ButtonPressed==0){
@@ -118,14 +122,15 @@ void setup() {
     delay(100);
   }
 
-  // Prepare for the First State
-  IR_Override=1;
-  robot.setIRAngle(IR_180);
   // If the IR Subsystem is enabled
   if(robot.readSwitch(1)==1)
     Scheduler.startLoop(IRLoop);
 
   delay(100);
+  // Prepare for the First State
+  IR_Override=1;
+  robot.setIRAngle(IR_180);
+  
   // Get correction factors from 30 Samplings
   ultraCorrect+=robot.readSideUltra();
   ultraCorrect+=robot.readSideUltra();
@@ -151,11 +156,12 @@ void loop() {
     // Driving, PID to follow a wall at 33 cm away. 
     case STATE_DRIVING:
       if(loaded==0){
-        leftDrive=128;
-        rightDrive=128;
+        leftDrive=220;
+        rightDrive=220;
       } else {
-        leftDrive=100;
-        rightDrive=100;
+        leftDrive=110;
+        rightDrive=110;
+        //robot.raiseLift();
       }
       IR_Override=1;
       robot.setIRAngle(IR_180);
@@ -167,45 +173,48 @@ void loop() {
         err2=DESIRED_SIDE_DIST-(side_ir+side_ultra)/2.0;
         compoundErr+=err2;
         change=(KP*err2)+(KI*compoundErr)-(KD*angle);
-        rightDrive=128+change;
+        rightDrive=rightDrive+change;
       } else {
-        rightDrive=rightDrive-20;
+        rightDrive=rightDrive-40;
       }
       robot.setRightDrive(rightDrive);
       robot.setLeftDrive(leftDrive);
-      if(robot.readFrontUltra()<50&&loaded==0)
-        state=STATE_LOCATING;
-      else if(robot.readFrontUltra()<30&&loaded==1)
+      if(robot.readFrontUltra()<55&&loaded==0){
+        if(robot.readFrontUltra()<55)
+          state=STATE_LOCATING;
+      }
+      else if(robot.readFrontUltra()<35&&loaded==1){
         state=STATE_DROPOFF;
+      }
       break;
 
     // Locating the Load and aligning for pickup
     case STATE_LOCATING:
       IR_Override=1;
-      robot.setIRAngle(IR_100);
-      delay(150);
+      robot.setIRAngle(IR_90);
+      delay(200);
       leftDrive=0;
       rightDrive=0;
       robot.setRightDrive(rightDrive);
       robot.setLeftDrive(leftDrive);
-      front_ultra=(robot.readFrontUltra()+robot.readFrontUltra())/2;
+      front_ultra=robot.readFrontUltra();
       front_ir=robot.readIR();
-      robot.setIRAngle(40);
-      delay(150);
-      side_ir=robot.readIR();
+      robot.setIRAngle(IR_40);
+      delay(200);
 
-      // Load is to the right
-      if(front_ir<front_ultra){
-        leftDrive=110;
-        rightDrive=70;
-      } else if(abs(front_ir-front_ultra)<3){ // Load is centered
+      if(abs((front_ir-1)-front_ultra)<5){ // Load is centered
         leftDrive=100;
         rightDrive=100;
+      } else if((front_ir-1)<front_ultra){ // Load is to the right 
+        leftDrive=80;
+        rightDrive=30;
       } else { // Load is to the left
-        leftDrive=70;
-        rightDrive=100;
+        leftDrive=30;
+        rightDrive=80;
       }
-      if(side_ir<15){ // Load is centered and in the rght spot to be picked up
+      
+      side_ir=robot.readIR();
+      if(side_ir<16){ // Load is centered and in the rght spot to be picked up
         leftDrive=0;
         rightDrive=0;
         state=STATE_PICKUP;
@@ -213,19 +222,20 @@ void loop() {
    
       robot.setLeftDrive(leftDrive);
       robot.setRightDrive(rightDrive);
-      delay(250);
+      delay(175);
       break;
 
     // Sequence to prep the lift and position the robot
     case STATE_PICKUP:
+      robot.setIRAngle(IR_90);
       robot.setLeftDrive(0);
       robot.setRightDrive(0);
       robot.lowerLift();
-      delay(1000);
+      delay(500);
       robot.setLeftDrive(80);
       robot.setRightDrive(80);
-      while(robot.readFrontUltra()>15)
-        delay(100);
+      while(robot.readFrontUltra()>22||robot.readIR()>22)
+        delay(10);
       robot.setRightDrive(0);
       robot.setLeftDrive(0);
       robot.raiseLift();
@@ -237,7 +247,7 @@ void loop() {
     case STATE_REVERSE:
       robot.setRightDrive(-100);
       robot.setLeftDrive(-100);
-      delay(2000);
+      delay(1000);
       state=STATE_TURNING;
       break;
 
@@ -250,10 +260,10 @@ void loop() {
       delay(2000);
       side_ir=robot.readIR()-irCorrect;
       side_ultra=robot.readSideUltra()-ultraCorrect;
-      while(abs(side_ir-side_ultra)>5){ // Are we straignt with the wall
+      while(abs(side_ir-side_ultra)>15){ // Are we straignt with the wall
         side_ir=robot.readIR()-irCorrect;
         side_ultra=robot.readSideUltra()-ultraCorrect;
-        delay(100);
+        delay(10);
       }
       robot.setRightDrive(0);
       robot.setLeftDrive(0);
@@ -266,40 +276,24 @@ void loop() {
 
     // Prep and position the robot to off load the package
     case STATE_DROPOFF:
-      robot.setRightDrive(90);
-      robot.setLeftDrive(90);
-      delay(1000);
+      robot.setRightDrive(60);
+      robot.setLeftDrive(60);
+      delay(300);
       robot.setRightDrive(0);
       robot.setLeftDrive(0);
       robot.lowerLift();
-      delay(1000);
-      robot.raiseLift();
+      delay(500);
       loaded=0;
-      state=STATE_REVERSE;
+      state=STATE_RETURN;
       break;
 
     // Follows the wall like the PID, but stops about half way. 
     // Doesn't work really well. 
     case STATE_RETURN:
-      IR_Override=1;
-      leftDrive=128;
-      rightDrive=128;
-      robot.setIRAngle(IR_180);
-      side_ultra=robot.readSideUltra()-ultraCorrect;
-      side_ir=robot.readIR()-irCorrect;
-      front_ultra=robot.readFrontUltra();
-      if(side_ultra>0&&side_ultra<50&&side_ir>0&&side_ir<50){
-        err1=side_ir-side_ultra; // Angle err
-        angle=asin((double)err1/(double)hyp)*57.2958;
-        err2=DESIRED_SIDE_DIST-(side_ir+side_ultra)/2.0;
-        compoundErr+=err2;
-        change=(KP*err2)+(KI*compoundErr)-(KD*angle);
-        rightDrive=128+change;
-      }
-      robot.setRightDrive(rightDrive);
-      robot.setLeftDrive(leftDrive);
-      if(front_ultra<100)
-        state=STATE_DONE;
+      robot.setLeftDrive(-255);
+      robot.setRightDrive(-255);
+      delay(2250);
+      state=STATE_DONE;
       break;
 
     // We are centered and the load has been moved. Relax
@@ -430,12 +424,18 @@ void commLoop(){
           greenLED=0;
           robot.setYellowLED(-1);
           yellowLED=1;
+          stateSave=state;
+          state=STATE_SETUP;
+          IROverrideSave=IR_Override;
+          IR_Override=0;
         } else {
           manual=0;
           robot.setGreenLED(-1);
           greenLED=1;
           robot.setYellowLED(0);
           yellowLED=0;
+          state=stateSave;
+          IR_Override=IROverrideSave;
         }
         break;
       case 14: // Read Manual Control
